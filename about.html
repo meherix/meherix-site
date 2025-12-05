@@ -1,320 +1,1328 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About — MEHErix</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0f2b46;           /* deep brand blue */
-    --ink-2:#0b1f34;
-    --purple:#8B5CF6;        /* brand purple */
-    --paper:#ffffff;
-    --muted:#a9b5cf;
-    --soft:rgba(255,255,255,.08);
-    --shadow:0 14px 36px rgba(0,0,0,.16);
-    --radius:16px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MEHErix - Insight Shines Through</title>
 
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
-    color:#e9f0ff;
-    background:
-      radial-gradient(1200px 800px at 10% -10%, rgba(139,92,246,.1), transparent 60%),
-      linear-gradient(81deg, #2d3661 0%, #000b24 100%);
-  }
-  img{max-width:100%; height:auto; display:block}
-  a{color:#fff; text-decoration:none}
+  <!-- Basic SEO / Social -->
+  <meta name="description"
+    content="MEHErix is an AI and Data Innovation Company in Finland, focused on Artificial Intelligence, Machine Learning, and Data-Driven Solutions." />
+  <meta name="theme-color" content="#0077b6" />
+  <link rel="icon" href="logo2.png" />
 
-  /* ===== container ===== */
-  .wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+  <meta property="og:title" content="MEHErix-Insight Shines Through" />
+  <meta property="og:description"
+    content="Learn more about MEHErix, our mission, vision, values, and the team behind our AI and data solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-cover.png" />
+  <meta property="og:url" content="https://your-domain.example/about.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MEHErix — About" />
+  <meta name="twitter:description"
+    content="Turning data into intelligence. Driving AI into action. Learn more about MEHErix." />
+  <meta name="twitter:image" content="/og-cover.png" />
 
-  /* ===== header (optional – remove if your theme already has one) ===== */
-  .mini-header{
-    position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(6px);
-    background:rgba(10,20,40,.6); border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .mini-nav{display:flex; align-items:center; gap:16px; padding:12px 22px}
-  .brand{font-weight:800; letter-spacing:.3px}
-  .pill{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@900&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet">
 
-  /* ===== hero ===== */
-  .hero{
-    padding:96px 0 48px; position:relative; overflow:hidden;
-  }
-  .hero h1{
-    font-size:40px; line-height:1.12; margin:0 0 10px; font-weight:800;
-  }
-  .hero p.lead{max-width:860px; color:#cdd6ea; font-size:18px; margin:8px 0 0}
-  .hero .tag{
-    display:inline-block; background:rgba(139,92,246,.18); color:#fff;
-    padding:8px 12px; border-radius:999px; font-weight:600; letter-spacing:.04em;
-  }
-  .grid-hero{display:grid; grid-template-columns:1.25fr 1fr; gap:32px; align-items:center}
-  @media (max-width:960px){ .grid-hero{grid-template-columns:1fr} }
+  <style>
+    :root {
+      --bg: #ffffff;
+      --light: #f8f9fa;
+      --ink: #1d3557;
+      --text: #457b9d;
+      --muted: #6c757d;
+      --card: #ffffff;
+      --brand: #0077b6;
+      --brand-ink: #ffffff;
+      --line: #dee2e6;
+      --shadow: 0 8px 24px rgba(29, 53, 87, .08);
+      --radius: 14px;
+      --maxw: 1120px;
+      --accent: #7A3CF6;
+    }
 
-  .card-img{
-    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    border:1px solid rgba(255,255,255,.12); border-radius:22px; box-shadow:var(--shadow);
-    padding:16px; transform:rotate(-2deg);
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  /* ===== section titles ===== */
-  .section{padding:56px 0}
-  h2.title{
-    font-size:28px; margin:0 0 8px; font-weight:800; color:#fff;
-  }
-  .kicker{
-    color:var(--purple); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:12px;
-  }
-  p.mute{color:#cdd6ea; margin:10px 0 0}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ===== value cards ===== */
-  .grid-3{display:grid; gap:18px; grid-template-columns:repeat(3,1fr)}
-  @media (max-width:960px){ .grid-3{grid-template-columns:1fr} }
-  .card{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:var(--radius);
-    box-shadow:0 10px 26px rgba(0,0,0,.12);
-    padding:22px;
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-  }
-  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); background:rgba(255,255,255,.07)}
-  .card h3{margin:8px 0 6px; font-size:18px}
-  .chip{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:6px 10px; background:rgba(139,92,246,.18); border:1px solid rgba(139,92,246,.35);
-    border-radius:999px; font-size:12px; font-weight:700;
-  }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      padding-top: 70px;
+      position: relative;
+      min-height: 100vh;
+    }
 
-  /* ===== mission/vision split ===== */
-  .split{display:grid; gap:18px; grid-template-columns:1fr 1fr}
-  @media (max-width:960px){ .split{grid-template-columns:1fr} }
-  .panel{
-    background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-    border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:22px;
-  }
-  .panel h3{margin:6px 0 8px}
-  .panel p{margin:0}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* ===== timeline ===== */
-  .timeline{position:relative; padding-left:20px}
-  .timeline:before{
-    content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,.18);
-  }
-  .t-item{position:relative; padding:12px 0 12px 16px}
-  .t-item:before{
-    content:""; position:absolute; left:-2px; top:16px; width:10px; height:10px; border-radius:50%;
-    background:var(--purple); box-shadow:0 0 0 3px rgba(139,92,246,.25);
-  }
-  .t-item h4{margin:0 0 4px; font-size:16px}
-  .t-item p{margin:0; color:#cdd6ea}
+    .container {
+      width: min(100%, var(--maxw));
+      margin-inline: auto;
+      padding-inline: clamp(1rem, 4vw, 2rem);
+    }
 
-  /* ===== team ===== */
-  .team{display:grid; gap:18px; grid-template-columns:repeat(4,1fr)}
-  @media (max-width:1100px){ .team{grid-template-columns:repeat(2,1fr)} }
-  @media (max-width:560px){ .team{grid-template-columns:1fr} }
-  .person{
-    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:16px;
-    display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center;
-  }
-  .avatar{
-    width:64px; height:64px; border-radius:12px; overflow:hidden; background:#1a2a46;
-    display:grid; place-items:center; font-weight:800; color:#fff; border:1px solid rgba(255,255,255,.1)
-  }
-  .person h4{margin:0 0 2px}
-  .person small{color:#cdd6ea}
+    /* ===== particles background ===== */
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
 
-  /* ===== cta ===== */
-  .cta{
-    background:linear-gradient(90deg, rgba(11,31,52,.9), rgba(139,92,246,.18));
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:22px; padding:22px;
-    display:grid; gap:16px; grid-template-columns:1fr auto; align-items:center;
-  }
-  @media (max-width:760px){ .cta{grid-template-columns:1fr} }
-  .btn{
-    padding:12px 18px; border-radius:12px; font-weight:700; border:1px solid rgba(255,255,255,.22);
-    background:var(--purple); color:#fff; box-shadow:0 6px 18px rgba(0,0,0,.25);
-  }
-  .btn.secondary{background:transparent}
+    /* ===== nav ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backdrop-filter: saturate(130%) blur(6px);
+      background: rgba(255, 255, 255, .9);
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+    }
 
-  /* ===== reveal ===== */
-  .reveal{opacity:0; transform:translateY(18px); transition:all .5s ease}
-  .reveal.visible{opacity:1; transform:none}
-</style>
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .8rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .brand__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background-image: url('logo2.png');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 6px 20px rgba(0, 119, 182, 0.35);
+    }
+
+    .brand-title-main {
+      font-size: 1.1rem;
+      line-height: 1.1;
+    }
+
+    .brand-tagline {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .navlinks a {
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .navlinks a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--brand);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .25s;
+    }
+
+    .navlinks a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 1px;
+      margin: 4px 0;
+    }
+
+    /* === LANGUAGE SWITCHER WRAPPER === */
+    .lang-switcher {
+      position: relative;
+    }
+
+    /* === BUTTON (Globe Icon) === */
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: grid;
+      place-items: center;
+    }
+
+    .lang-btn svg {
+      width: 22px;
+      height: 22px;
+      color: var(--text);
+    }
+
+    /* === DROPDOWN === */
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.5rem;
+      box-shadow: var(--shadow);
+      min-width: 120px;
+      z-index: 20;
+    }
+
+    /* Show dropdown on hover */
+    .lang-switcher:hover .lang-dropdown {
+      display: block;
+    }
+
+    /* links inside dropdown */
+    .lang-dropdown a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .lang-dropdown a:hover {
+      background: var(--light);
+      color: var(--brand);
+    }
+
+    /* Mobile fix */
+    @media (max-width: 820px) {
+      .lang-switcher {
+        position: static;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav__inner {
+        padding-block: .6rem;
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, .98);
+        flex-direction: column;
+        align-items: center;
+        padding: 1.3rem 0 1.6rem;
+        gap: 1rem;
+        border-top: 1px solid var(--line);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
+      }
+
+      .navlinks.active {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* ===== hero / title section ===== */
+    .site-top {
+      padding: clamp(4rem, 7vw, 5.5rem) 0 2.5rem;
+    }
+
+    .hero-about {
+      text-align: center;
+    }
+
+    .hero-logo-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 0.75rem;
+      background: #ffffff;
+      border: 1px solid rgba(0, 119, 182, .15);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 119, 182, .18);
+    }
+
+    .hero-logo-circle img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .hero-about h1 {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2.1rem, 3vw + 0.5rem, 3rem);
+      color: var(--ink);
+    }
+
+    .hero-about .hero-subtitle {
+      margin-top: .25rem;
+      font-size: .98rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero-about p {
+      max-width: 58ch;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      text-align: justify;
+      hyphens: auto;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ===== generic section styling ===== */
+    section {
+      padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.7rem, 2vw + 0.6rem, 2.3rem);
+      color: var(--ink);
+      margin: .3rem 0 0;
+    }
+
+    .section-sub {
+      max-width: 58ch;
+      margin: .6rem auto 0;
+      color: var(--muted);
+    }
+
+    /* ===== grid helpers ===== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== mission / vision ===== */
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.6rem;
+    }
+
+    .panel h3 {
+      margin: 0 0 .4rem;
+      font-size: 1.15rem;
+      color: var(--ink);
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* ===== values ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.25rem, 3vw, 1.8rem);
+    }
+
+    @media (max-width: 900px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .value-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.5rem;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(29, 53, 87, .16);
+    }
+
+    .value-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .3rem .6rem;
+      border-radius: 999px;
+      background: rgba(0, 119, 182, .06);
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: .4rem;
+    }
+
+    .value-card h3 {
+      margin: 0 0 .4rem;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+      text-align: justify;
+    }
+
+    /* ===== story / timeline ===== */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-top: 1rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: rgba(0, 119, 182, .2);
+    }
+
+    .t-item {
+      position: relative;
+      padding: .9rem 0 .9rem 1.2rem;
+    }
+
+    .t-item::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 16px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 3px rgba(0, 119, 182, .2);
+    }
+
+    .t-item h4 {
+      margin: 0 0 .25rem;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .t-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+      text-align: justify;
+    }
+
+    /* ===== team ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 1100px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .person {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: .75rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #0077b6, #1d3557);
+      font-size: 1.1rem;
+    }
+
+    .person h4 {
+      margin: 0 0 .15rem;
+      font-size: .98rem;
+      color: var(--ink);
+    }
+
+    .person small {
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* ===== CTA / contact ===== */
+    .cta-wrap {
+      background: linear-gradient(135deg, #0d1b2a, #1d3557);
+      border-radius: 22px;
+      padding: 1.7rem 1.8rem;
+      color: #e5e7eb;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1.4fr auto;
+      align-items: center;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .45);
+    }
+
+    @media (max-width: 760px) {
+      .cta-wrap {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    .cta-wrap h3 {
+      margin: 0 0 .3rem;
+      font-size: 1.3rem;
+    }
+
+    .cta-wrap p {
+      margin: 0;
+      font-size: .93rem;
+      color: rgba(249, 250, 251, .8);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      padding: .7rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      font-size: .9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #022c22;
+      border-color: #16a34a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, .7);
+    }
+
+    .btn:hover {
+      filter: brightness(.97);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .5);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+      box-shadow: none;
+    }
+
+    /* ===== footer ===== */
+    .site-footer-shell {
+      background: linear-gradient(165deg, #1d3557 0%, #0d1b2a 100%);
+      box-shadow: 0 -10px 40px rgba(29, 53, 87, .2);
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin-top: 3rem;
+    }
+
+    .site-footer {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: clamp(1rem, 2vw, 2rem);
+      align-items: flex-start;
+    }
+
+    .footer-brand h4 {
+      margin: 0 0 .5rem;
+      font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: #fff;
+    }
+
+    .footer-brand p {
+      margin: 0 0 1rem;
+      color: rgba(255, 255, 255, .78);
+      font-size: .9rem;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 .75rem;
+      font-size: 1.02rem;
+      font-weight: 800;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .4rem;
+      font-size: .9rem;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, .87);
+      text-decoration: none;
+    }
+
+    .footer-col a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-sep {
+      margin: clamp(1.5rem, 3vw, 2rem) 0;
+      height: 1px;
+      border: 0;
+      background: linear-gradient(to right,
+          rgba(255, 255, 255, .08),
+          rgba(255, 255, 255, .25),
+          rgba(255, 255, 255, .08));
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem 1rem;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, .88);
+      font-size: .9rem;
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, .9);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <!-- structured data (JSON-LD only) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"MEHErix",
+    "url":"https://meherix.com",
+    "logo":"https://your-domain.example/logo.png",
+    "email":"info@meherix.com"
+  }
+  </script>
 </head>
+
 <body>
 
-<!-- optional sticky mini header (remove if your theme header shows here) -->
-<header class="mini-header">
-  <div class="mini-nav wrap">
-    <div class="brand">MEHErix — About</div>
-    <div style="flex:1"></div>
-    <a class="pill" href="#mission">Mission</a>
-    <a class="pill" href="#values">Values</a>
-    <a class="pill" href="#story">Our Story</a>
-    <a class="pill" href="#team">Team</a>
-    <a class="pill" href="#contact">Contact</a>
-  </div>
-</header>
+  <!-- particles background -->
+  <div id="tsparticles"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap grid-hero">
-    <div class="reveal">
-      <span class="tag">Insight Shines Through</span>
-      <h1>MEHErix.fi — AI &amp; Data Innovation Company</h1>
-      <p class="lead"><strong>We’re a Finland-based team turning data into intelligence and driving AI into action. We build ethical, high-impact AI solutions that help restaurants, retailers, and organizations make smarter, sustainable decisions.</strong></p>
-    </div>
-    <div class="card-img reveal" aria-hidden="true">
-      <!-- Replace with your own illustration or screenshot -->
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Data & AI Illustration">
-    </div>
-  </div>
-</section>
-
-<!-- MISSION / VISION -->
-<section id="mission" class="section">
-  <div class="wrap split">
-    <div class="panel reveal">
-      <div class="kicker">Vision</div>
-      <h3>Turning data into intelligence, driving AI into action.</h3>
-      <p>We envision a world where every kitchen, team, and city can make confident, sustainable decisions powered by clear, trustworthy data and responsible AI.</p>
-    </div>
-    <div class="panel reveal">
-      <div class="kicker">Mission</div>
-      <h3>Create ethical, high-impact AI solutions.</h3>
-      <p>We design data pipelines, predictive models, and human-centered tools that reduce waste, save time, and unlock growth — from the buffet line to the boardroom.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CORE VALUES -->
-<section id="values" class="section">
-  <div class="wrap">
-    <div class="kicker">Core Values</div>
-    <h2 class="title">How we build — faster, smarter, scalable.</h2>
-    <p class="mute">Every engagement is built for clarity, agility, and measurable value.</p>
-
-    <div class="grid-3" style="margin-top:18px">
-      <article class="card reveal">
-        <span class="chip">⚙️ Engineering Clarity</span>
-        <h3>Transparent Data &amp; Models</h3>
-        <p>We document, test, and explain—so teams trust what they see and use it with confidence.</p>
-      </article>
-      <article class="card reveal">
-        <span class="chip">🌱 Impact First</span>
-        <h3>Reduce Waste, Increase Value</h3>
-        <p>From kitchen yield to energy use, we focus on metrics that matter for business and planet.</p>
-      </article>
-      <article class="card reveal">
-        <span class="chip">🔒 Responsible AI</span>
-        <h3>Ethics &amp; Data Security</h3>
-        <p>Privacy by design, least privilege access, and thorough monitoring across the stack.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- STORY / TIMELINE -->
-<section id="story" class="section">
-  <div class="wrap">
-    <div class="kicker">Our Story</div>
-    <h2 class="title">From idea to impact</h2>
-    <div class="timeline" style="margin-top:10px">
-      <div class="t-item reveal">
-        <h4>2024 — Concept</h4>
-        <p>MEHErix starts with a simple goal: help restaurants predict demand and cut buffet waste.</p>
-      </div>
-      <div class="t-item reveal">
-        <h4>2025 — SmartServeAI</h4>
-        <p>First pilots combine POS data, prep logs, and computer vision signals to recommend daily batch sizes.</p>
-      </div>
-      <div class="t-item reveal">
-        <h4>Next — aPOD &amp; beyond</h4>
-        <p>Student learning snapshots (aPOD) and multi-tenant analytics platform for sustainable operations at scale.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TEAM PREVIEW -->
-<section id="team" class="section">
-  <div class="wrap">
-    <div class="kicker">Our Experts</div>
-    <h2 class="title">The minds behind the mission</h2>
-
-    <div class="team" style="margin-top:16px">
-      <!-- Duplicate these for more people; replace initials/images -->
-      <div class="person reveal">
-        <div class="avatar">MX</div>
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Primary">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="MEHErix Home">
+        <div class="brand__logo"></div>
         <div>
-          <h4>Lead, AI &amp; Data</h4>
-          <small>Predictive modeling • MLOps • Azure Fabric</small>
+          <div class="brand-title-main">MEHErix</div>
+          <div class="brand-tagline">Insight Shines Through</div>
         </div>
-      </div>
-      <div class="person reveal">
-        <div class="avatar">DS</div>
-        <div>
-          <h4>Data Engineer</h4>
-          <small>Lakehouse • ELT • Power BI</small>
-        </div>
-      </div>
-      <div class="person reveal">
-        <div class="avatar">UX</div>
-        <div>
-          <h4>Product &amp; UX</h4>
-          <small>Dashboard design • Accessibility</small>
-        </div>
-      </div>
-      <div class="person reveal">
-        <div class="avatar">CV</div>
-        <div>
-          <h4>Vision &amp; Robotics</h4>
-          <small>Edge-AI • Food waste detection</small>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+
+      <div class="navlinks">
+        <a href="index.html" data-translate-key="navHome">Home</a>
+        <a href="index.html#services" data-translate-key="navServices">Services</a>
+        <a href="projects.html" data-translate-key="navProjects">Projects</a>
+        <a href="contact.html" data-translate-key="navContact">Contact</a>
+
+        <!-- LANGUAGE SWITCHER -->
+        <div class="lang-switcher">
+          <button class="lang-btn" aria-label="Change language" aria-haspopup="true" aria-expanded="false">
+            <!-- Globe icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10
+                       15.3 15.3 0 0 1-4 10
+                       15.3 15.3 0 0 1-4-10
+                       15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </button>
+          <div class="lang-dropdown" role="menu">
+            <a href="javascript:void(0)" onclick="changeLanguage('en')" role="menuitem">English</a>
+            <a href="javascript:void(0)" onclick="changeLanguage('fi')" role="menuitem">Suomi</a>
+            <a href="javascript:void(0)" onclick="changeLanguage('sv')" role="menuitem">Svenska</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- CALL TO ACTION -->
-<section id="contact" class="section">
-  <div class="wrap cta reveal">
-    <div>
-      <h2 class="title" style="margin:0 0 6px">Work with MEHErix</h2>
-      <p class="mute" style="margin:0">Tell us your goal — we’ll map the data, the model, and the roadmap to get there.</p>
+  <!-- HERO / TITLE SECTION -->
+  <header class="site-top">
+    <div class="container hero-about">
+      <div class="hero-logo-circle">
+        <img src="logo2.png" alt="MEHErix logo">
+      </div>
+      <h1 data-translate-key="heroTitle">MEHErix</h1>
+      <div class="hero-subtitle" data-translate-key="heroSubtitle">AI &amp; Data Innovation Company</div>
+      <p data-translate-key="heroParagraph">
+        MEHErix is an AI and Data Innovation Company in Finland, focused on Artificial Intelligence, Machine Learning,
+        and Data-Driven Solutions. We help organisations turn data into practical, ethical and sustainable intelligence.
+      </p>
     </div>
-    <div style="display:flex; gap:10px; justify-content:flex-end">
-      <a class="btn secondary" href="mailto:info@meherix.com">info@meherix.com</a>
-      <a class="btn" href="#!">Book a discovery call</a>
+  </header>
+
+  <main>
+    <!-- MISSION / VISION -->
+    <section id="mission">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-translate-key="directionKicker">Our Direction</div>
+          <h2 class="section-title" data-translate-key="directionTitle">Vision &amp; Mission</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3 data-translate-key="visionTitle">Vision</h3>
+            <p data-translate-key="visionText">Turning data into intelligence, driving AI into action.</p>
+          </article>
+          <article class="panel">
+            <h3 data-translate-key="missionTitle">Mission</h3>
+            <p data-translate-key="missionText">To create ethical, high-impact AI solutions that empower smarter and
+              sustainable decisions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section id="values">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-translate-key="valuesKicker">Core Values</div>
+          <h2 class="section-title" data-translate-key="valuesTitle">How We Build — Faster, Smarter, Scalable</h2>
+          <p class="section-sub" data-translate-key="valuesSubhead">
+            Every engagement is designed for clarity, agility and measurable value — so AI becomes something your teams
+            can actually trust and use.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <div class="value-chip" data-translate-key="value1Chip">⚙️ Engineering Clarity</div>
+            <h3 data-translate-key="value1Title">Transparent Data &amp; Models</h3>
+            <p data-translate-key="value1Text">We document, test and explain our pipelines and models, so stakeholders
+              understand how things work and
+              can make decisions with confidence.</p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-chip" data-translate-key="value2Chip">🌱 Impact First</div>
+            <h3 data-translate-key="value2Title">Reduce Waste, Increase Value</h3>
+            <p data-translate-key="value2Text">From kitchen yield to learning outcomes and grocery sustainability, we
+              focus on metrics that matter for
+              both business and the planet.</p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-chip" data-translate-key="value3Chip">🔒 Responsible AI</div>
+            <h3 data-translate-key="value3Title">Ethics &amp; Data Security</h3>
+            <p data-translate-key="value3Text">We build with privacy-by-design, least‑privilege access, and continuous
+              monitoring across the stack to
+              keep your data safe and compliant.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY / TIMELINE -->
+    <section id="story">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-translate-key="storyKicker">Our Story</div>
+          <h2 class="section-title" data-translate-key="storyTitle">From Idea to Impact</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item">
+            <h4 data-translate-key="story1Title">2024 — Concept</h4>
+            <p data-translate-key="story1Text">MEHErix starts with a simple goal: help restaurants predict demand and
+              cut buffet waste with AI and
+              data-driven planning.</p>
+          </div>
+          <div class="t-item">
+            <h4 data-translate-key="story2Title">2025 — RixServe</h4>
+            <p data-translate-key="story2Text">First pilots combine POS data, prep logs, and computer vision signals to
+              recommend daily batch sizes and
+              visualise performance in kitchen dashboards.</p>
+          </div>
+          <div class="t-item">
+            <h4 data-translate-key="story3Title">Next — moduleBD, GroceScan &amp; beyond</h4>
+            <p data-translate-key="story3Text"><strong>AI Co-Pilot with Student Intelligent Dashboard and Smart Grocery
+                AI Assistant</strong> — bridging
+              learning analytics and perishable-food decisions to support smarter choices at school, home and in the
+              kitchen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker" data-translate-key="expertsKicker">Our Experts</div>
+          <h2 class="section-title" data-translate-key="expertsTitle">The Minds Behind the Mission</h2>
+          <p class="section-sub" data-translate-key="expertsSubhead">
+            Our team brings together data science, engineering, UX, and computer vision to turn complex challenges into
+            usable products and services.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="person">
+            <div class="avatar">MX</div>
+            <div>
+              <h4 data-translate-key="teamRole1">Lead, AI &amp; Data</h4>
+              <small data-translate-key="teamSkills1">Predictive modelling • MLOps • Azure Fabric</small>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar">DS</div>
+            <div>
+              <h4 data-translate-key="teamRole2">Data Engineer</h4>
+              <small data-translate-key="teamSkills2">Lakehouse • ELT • Power BI</small>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar">UX</div>
+            <div>
+              <h4 data-translate-key="teamRole3">Product &amp; UX</h4>
+              <small data-translate-key="teamSkills3">Dashboard design • Accessibility</small>
+            </div>
+          </div>
+          <div class="person">
+            <div class="avatar">CV</div>
+            <div>
+              <h4 data-translate-key="teamRole4">Vision &amp; Robotics</h4>
+              <small data-translate-key="teamSkills4">Edge-AI • Food waste detection</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section id="contact">
+      <div class="container">
+        <div class="cta-wrap">
+          <div>
+            <h3 data-translate-key="ctaTitle">Work with MEHErix</h3>
+            <p data-translate-key="ctaText">Tell us your goal — we’ll help map the data, the model and the roadmap to
+              get you there.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-outline" href="mailto:info@meherix.com" data-translate-key="ctaEmail">info@meherix.com</a>
+            <a class="btn btn-primary" href="contact.html" data-translate-key="ctaBtn">Book a discovery call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer-cta" id="contact-footer">
+    <style>
+      .site-footer {
+        background: linear-gradient(165deg, var(--ink) 0%, #0d1b2a 100%);
+        box-shadow: 0 -10px 40px rgba(29, 53, 87, .1);
+        border-top: 1px solid rgba(255, 255, 255, .1);
+
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+        color: #fff;
+        border-radius: 22px 22px 0 0;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: clamp(1rem, 2vw, 2rem);
+        align-items: start;
+      }
+
+      .footer-brand h4 {
+        margin: 0 0 .5rem;
+        font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
+        font-weight: 800;
+        letter-spacing: .2px;
+        color: #fff;
+      }
+
+      .footer-brand p {
+        margin: 0 0 1rem;
+        color: rgba(255, 255, 255, .75);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: .6rem;
+      }
+
+      .footer-social a {
+        display: inline-grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .08);
+        border: 1px solid rgba(255, 255, 255, .12);
+        transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      }
+
+      .footer-social a:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, .14);
+        border-color: rgba(255, 255, 255, .22);
+      }
+
+      .footer-col h4 {
+        margin: 0 0 .75rem;
+        font-size: 1.05rem;
+        font-weight: 800;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: .5rem;
+      }
+
+      .footer-col a {
+        color: rgba(255, 255, 255, .85);
+        text-decoration: none;
+        transition: opacity .15s ease, transform .1s ease;
+      }
+
+      .footer-col a:hover {
+        opacity: 1;
+        text-decoration: underline;
+      }
+
+      .footer-sep {
+        margin: clamp(1.5rem, 3vw, 2rem) 0;
+        height: 1px;
+        border: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, .08), rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .75rem 1rem;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, .85);
+        font-size: .95rem;
+      }
+
+      .footer-bottom a {
+        color: rgba(255, 255, 255, .9);
+        text-decoration: none;
+      }
+
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 900px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+          gap: .5rem;
+        }
+      }
+    </style>
+
+    <div class="site-footer">
+      <div class="footer-grid">
+        <!-- Brand & Social -->
+        <div class="footer-brand">
+          <h4>MEHErix – Insight Shines Through</h4>
+          <p>AI &amp; Data Innovation Company<br>Orvokkitie 3, O1300 Vantaa, Finland<br>Business ID: 000000</p>
+          <div class="footer-social">
+            <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18M6 6l12 12"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="mailto:info@meherix.fi" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Useful Links -->
+        <div class="footer-col">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="career.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- SaaS -->
+        <div class="footer-col">
+          <h4>SaaS</h4>
+          <ul>
+            <li><a href="modulebd.html">moduleBD - Student AI Co-pilot</a></li>
+            <li><a href="grocescan.html">GroceScan-Predict Freshness. Prevent Waste.</a></li>
+          </ul>
+        </div>
+
+        <!-- PaaS -->
+        <div class="footer-col">
+          <h4>PaaS</h4>
+          <ul>
+            <li><a href="rixserve.html">RixServe - Kitchen Intelligent Dashboard</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-sep" />
+
+      <div class="footer-bottom">
+        <div>© <span id="y"></span> MEHErix Oy. All rights reserved</div>
+        <div>
+          <a href="privacy.html">Privacy Policy</a>
+          <span style="opacity:.6; padding:0 .6rem;">–</span>
+          <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<footer class="section" style="padding-top:16px">
-  <div class="wrap" style="text-align:center; color:var(--muted);">
-    © <span id="y"></span> MEHErix — Insight Shines Through
-  </div>
-</footer>
+    <script>
+      (function () {
+        var n = document.getElementById('y');
+        if (n && !n.textContent) n.textContent = new Date().getFullYear();
+      })();
+    </script>
+  </footer>
 
-<script>
-  // Simple reveal on scroll
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  <!-- scripts: particles + nav toggle + language -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+  <script>
+    // Year in footer (extra safety, but we already set above)
+    (function () {
+      var y = document.getElementById('y');
+      if (y && !y.textContent) y.textContent = new Date().getFullYear();
+    })();
+
+    // Nav toggle for mobile
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.navlinks');
+
+    navToggle.addEventListener('click', () => {
+      const isActive = navLinks.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     });
-  }, {threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-  // year
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+
+    // Particles background
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      background: { color: "#f8f9fa" },
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#1d3557" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#457b9d",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      },
+      detectRetina: true
+    });
+
+    // =======================
+    // LANGUAGE SWITCHER LOGIC
+    // =======================
+    const langSwitcher = document.querySelector('.lang-switcher');
+    const langBtn = document.querySelector('.lang-btn');
+    const langLinks = document.querySelectorAll('.lang-dropdown a');
+
+    // Open / Close dropdown
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langSwitcher.classList.toggle('active');
+      langBtn.setAttribute('aria-expanded', langSwitcher.classList.contains('active'));
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!langSwitcher.contains(e.target)) {
+        langSwitcher.classList.remove('active');
+        langBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // =======================
+    // TRANSLATION DICTIONARY
+    // =======================
+    const translations = {
+      en: {
+        navHome: "Home",
+        navServices: "Services",
+        navAbout: "About",
+        navProjects: "Projects"
+      },
+      fi: {
+        navHome: "Koti",
+        navServices: "Palvelut",
+        navAbout: "Tietoja",
+        navProjects: "Projektit"
+      },
+      sv: {
+        navHome: "Hem",
+        navServices: "Tjänster",
+        navAbout: "Om oss",
+        navProjects: "Projekt"
+      }
+    };
+
+    // =======================
+    // APPLY LANGUAGE SWITCH
+    // =======================
+    function changeLanguage(lang) {
+      document.querySelectorAll("[data-translate-key]").forEach(el => {
+        const key = el.getAttribute("data-translate-key");
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      langSwitcher.classList.remove("active");
+      langBtn.setAttribute("aria-expanded", "false");
+      document.documentElement.lang = lang;
+      localStorage.setItem("meherix-lang", lang);
+    }
+
+    // Attach click handlers to dropdown items
+    langLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = link.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+
+    // Load saved language on page load
+    const savedLang = localStorage.getItem("meherix-lang") || "en";
+    changeLanguage(savedLang);
+  </script>
+
 </body>
+
+
 </html>
