@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — MEHErix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2b46;           /* deep brand blue */
+    --ink-2:#0b1f34;
+    --purple:#8B5CF6;        /* brand purple */
+    --paper:#ffffff;
+    --muted:#a9b5cf;
+    --soft:rgba(255,255,255,.08);
+    --shadow:0 14px 36px rgba(0,0,0,.16);
+    --radius:16px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+    color:#e9f0ff;
+    background:
+      radial-gradient(1200px 800px at 10% -10%, rgba(139,92,246,.1), transparent 60%),
+      linear-gradient(81deg, #2d3661 0%, #000b24 100%);
+  }
+  img{max-width:100%; height:auto; display:block}
+  a{color:#fff; text-decoration:none}
+
+  /* ===== container ===== */
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+
+  /* ===== header (optional – remove if your theme already has one) ===== */
+  .mini-header{
+    position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(6px);
+    background:rgba(10,20,40,.6); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .mini-nav{display:flex; align-items:center; gap:16px; padding:12px 22px}
+  .brand{font-weight:800; letter-spacing:.3px}
+  .pill{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px}
+
+  /* ===== hero ===== */
+  .hero{
+    padding:96px 0 48px; position:relative; overflow:hidden;
+  }
+  .hero h1{
+    font-size:40px; line-height:1.12; margin:0 0 10px; font-weight:800;
+  }
+  .hero p.lead{max-width:860px; color:#cdd6ea; font-size:18px; margin:8px 0 0}
+  .hero .tag{
+    display:inline-block; background:rgba(139,92,246,.18); color:#fff;
+    padding:8px 12px; border-radius:999px; font-weight:600; letter-spacing:.04em;
+  }
+  .grid-hero{display:grid; grid-template-columns:1.25fr 1fr; gap:32px; align-items:center}
+  @media (max-width:960px){ .grid-hero{grid-template-columns:1fr} }
+
+  .card-img{
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.12); border-radius:22px; box-shadow:var(--shadow);
+    padding:16px; transform:rotate(-2deg);
+  }
+
+  /* ===== section titles ===== */
+  .section{padding:56px 0}
+  h2.title{
+    font-size:28px; margin:0 0 8px; font-weight:800; color:#fff;
+  }
+  .kicker{
+    color:var(--purple); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:12px;
+  }
+  p.mute{color:#cdd6ea; margin:10px 0 0}
+
+  /* ===== value cards ===== */
+  .grid-3{display:grid; gap:18px; grid-template-columns:repeat(3,1fr)}
+  @media (max-width:960px){ .grid-3{grid-template-columns:1fr} }
+  .card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius);
+    box-shadow:0 10px 26px rgba(0,0,0,.12);
+    padding:22px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow); background:rgba(255,255,255,.07)}
+  .card h3{margin:8px 0 6px; font-size:18px}
+  .chip{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 10px; background:rgba(139,92,246,.18); border:1px solid rgba(139,92,246,.35);
+    border-radius:999px; font-size:12px; font-weight:700;
+  }
+
+  /* ===== mission/vision split ===== */
+  .split{display:grid; gap:18px; grid-template-columns:1fr 1fr}
+  @media (max-width:960px){ .split{grid-template-columns:1fr} }
+  .panel{
+    background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.12); border-radius:var(--radius); padding:22px;
+  }
+  .panel h3{margin:6px 0 8px}
+  .panel p{margin:0}
+
+  /* ===== timeline ===== */
+  .timeline{position:relative; padding-left:20px}
+  .timeline:before{
+    content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,.18);
+  }
+  .t-item{position:relative; padding:12px 0 12px 16px}
+  .t-item:before{
+    content:""; position:absolute; left:-2px; top:16px; width:10px; height:10px; border-radius:50%;
+    background:var(--purple); box-shadow:0 0 0 3px rgba(139,92,246,.25);
+  }
+  .t-item h4{margin:0 0 4px; font-size:16px}
+  .t-item p{margin:0; color:#cdd6ea}
+
+  /* ===== team ===== */
+  .team{display:grid; gap:18px; grid-template-columns:repeat(4,1fr)}
+  @media (max-width:1100px){ .team{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .team{grid-template-columns:1fr} }
+  .person{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:16px;
+    display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center;
+  }
+  .avatar{
+    width:64px; height:64px; border-radius:12px; overflow:hidden; background:#1a2a46;
+    display:grid; place-items:center; font-weight:800; color:#fff; border:1px solid rgba(255,255,255,.1)
+  }
+  .person h4{margin:0 0 2px}
+  .person small{color:#cdd6ea}
+
+  /* ===== cta ===== */
+  .cta{
+    background:linear-gradient(90deg, rgba(11,31,52,.9), rgba(139,92,246,.18));
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px; padding:22px;
+    display:grid; gap:16px; grid-template-columns:1fr auto; align-items:center;
+  }
+  @media (max-width:760px){ .cta{grid-template-columns:1fr} }
+  .btn{
+    padding:12px 18px; border-radius:12px; font-weight:700; border:1px solid rgba(255,255,255,.22);
+    background:var(--purple); color:#fff; box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+  .btn.secondary{background:transparent}
+
+  /* ===== reveal ===== */
+  .reveal{opacity:0; transform:translateY(18px); transition:all .5s ease}
+  .reveal.visible{opacity:1; transform:none}
+</style>
+</head>
+<body>
+
+<!-- optional sticky mini header (remove if your theme header shows here) -->
+<header class="mini-header">
+  <div class="mini-nav wrap">
+    <div class="brand">MEHErix — About</div>
+    <div style="flex:1"></div>
+    <a class="pill" href="#mission">Mission</a>
+    <a class="pill" href="#values">Values</a>
+    <a class="pill" href="#story">Our Story</a>
+    <a class="pill" href="#team">Team</a>
+    <a class="pill" href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap grid-hero">
+    <div class="reveal">
+      <span class="tag">Insight Shines Through</span>
+      <h1>MEHErix.fi — AI &amp; Data Innovation Company</h1>
+      <p class="lead"><strong>We’re a Finland-based team turning data into intelligence and driving AI into action. We build ethical, high-impact AI solutions that help restaurants, retailers, and organizations make smarter, sustainable decisions.</strong></p>
+    </div>
+    <div class="card-img reveal" aria-hidden="true">
+      <!-- Replace with your own illustration or screenshot -->
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Data & AI Illustration">
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section id="mission" class="section">
+  <div class="wrap split">
+    <div class="panel reveal">
+      <div class="kicker">Vision</div>
+      <h3>Turning data into intelligence, driving AI into action.</h3>
+      <p>We envision a world where every kitchen, team, and city can make confident, sustainable decisions powered by clear, trustworthy data and responsible AI.</p>
+    </div>
+    <div class="panel reveal">
+      <div class="kicker">Mission</div>
+      <h3>Create ethical, high-impact AI solutions.</h3>
+      <p>We design data pipelines, predictive models, and human-centered tools that reduce waste, save time, and unlock growth — from the buffet line to the boardroom.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values" class="section">
+  <div class="wrap">
+    <div class="kicker">Core Values</div>
+    <h2 class="title">How we build — faster, smarter, scalable.</h2>
+    <p class="mute">Every engagement is built for clarity, agility, and measurable value.</p>
+
+    <div class="grid-3" style="margin-top:18px">
+      <article class="card reveal">
+        <span class="chip">⚙️ Engineering Clarity</span>
+        <h3>Transparent Data &amp; Models</h3>
+        <p>We document, test, and explain—so teams trust what they see and use it with confidence.</p>
+      </article>
+      <article class="card reveal">
+        <span class="chip">🌱 Impact First</span>
+        <h3>Reduce Waste, Increase Value</h3>
+        <p>From kitchen yield to energy use, we focus on metrics that matter for business and planet.</p>
+      </article>
+      <article class="card reveal">
+        <span class="chip">🔒 Responsible AI</span>
+        <h3>Ethics &amp; Data Security</h3>
+        <p>Privacy by design, least privilege access, and thorough monitoring across the stack.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STORY / TIMELINE -->
+<section id="story" class="section">
+  <div class="wrap">
+    <div class="kicker">Our Story</div>
+    <h2 class="title">From idea to impact</h2>
+    <div class="timeline" style="margin-top:10px">
+      <div class="t-item reveal">
+        <h4>2024 — Concept</h4>
+        <p>MEHErix starts with a simple goal: help restaurants predict demand and cut buffet waste.</p>
+      </div>
+      <div class="t-item reveal">
+        <h4>2025 — SmartServeAI</h4>
+        <p>First pilots combine POS data, prep logs, and computer vision signals to recommend daily batch sizes.</p>
+      </div>
+      <div class="t-item reveal">
+        <h4>Next — aPOD &amp; beyond</h4>
+        <p>Student learning snapshots (aPOD) and multi-tenant analytics platform for sustainable operations at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM PREVIEW -->
+<section id="team" class="section">
+  <div class="wrap">
+    <div class="kicker">Our Experts</div>
+    <h2 class="title">The minds behind the mission</h2>
+
+    <div class="team" style="margin-top:16px">
+      <!-- Duplicate these for more people; replace initials/images -->
+      <div class="person reveal">
+        <div class="avatar">MX</div>
+        <div>
+          <h4>Lead, AI &amp; Data</h4>
+          <small>Predictive modeling • MLOps • Azure Fabric</small>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="avatar">DS</div>
+        <div>
+          <h4>Data Engineer</h4>
+          <small>Lakehouse • ELT • Power BI</small>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="avatar">UX</div>
+        <div>
+          <h4>Product &amp; UX</h4>
+          <small>Dashboard design • Accessibility</small>
+        </div>
+      </div>
+      <div class="person reveal">
+        <div class="avatar">CV</div>
+        <div>
+          <h4>Vision &amp; Robotics</h4>
+          <small>Edge-AI • Food waste detection</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section id="contact" class="section">
+  <div class="wrap cta reveal">
+    <div>
+      <h2 class="title" style="margin:0 0 6px">Work with MEHErix</h2>
+      <p class="mute" style="margin:0">Tell us your goal — we’ll map the data, the model, and the roadmap to get there.</p>
+    </div>
+    <div style="display:flex; gap:10px; justify-content:flex-end">
+      <a class="btn secondary" href="mailto:info@meherix.com">info@meherix.com</a>
+      <a class="btn" href="#!">Book a discovery call</a>
+    </div>
+  </div>
+</section>
+
+<footer class="section" style="padding-top:16px">
+  <div class="wrap" style="text-align:center; color:var(--muted);">
+    © <span id="y"></span> MEHErix — Insight Shines Through
+  </div>
+</footer>
+
+<script>
+  // Simple reveal on scroll
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+  // year
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

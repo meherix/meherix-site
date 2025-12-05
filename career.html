@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Careers — MEHErix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2b46;           /* deep brand blue */
+    --ink2:#0b1f34;
+    --purple:#8B5CF6;        /* brand purple */
+    --paper:#ffffff;
+    --muted:#cdd6ea;
+    --soft:rgba(255,255,255,.10);
+    --glass:rgba(16,28,52,.55);
+    --radius:16px;
+    --shadow:0 14px 36px rgba(0,0,0,.20);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+    color:#e9f0ff;
+    background:
+      radial-gradient(1200px 800px at 12% -10%, rgba(139,92,246,.12), transparent 60%),
+      linear-gradient(81deg, #2d3661 0%, #000b24 100%);
+  }
+  a{color:#fff; text-decoration:none}
+  img{max-width:100%; height:auto; display:block}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 22px}
+
+  /* Header */
+  .mini-header{
+    position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(6px);
+    background:rgba(10,20,40,.6); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav{display:flex; align-items:center; gap:16px; padding:12px 22px}
+  .brand{font-weight:800; letter-spacing:.3px}
+  .nav .spacer{flex:1}
+  .pill{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px}
+  .btn{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:700; border:1px solid rgba(255,255,255,.22)}
+  .btn.primary{background:var(--purple); color:#fff; box-shadow:0 10px 24px rgba(0,0,0,.25)}
+  .btn.ghost{background:transparent}
+
+  /* Hero */
+  .hero{padding:86px 0 38px}
+  .grid-hero{display:grid; grid-template-columns:1.25fr 1fr; gap:28px; align-items:center}
+  @media (max-width:980px){ .grid-hero{grid-template-columns:1fr} }
+  h1{font-size:40px; line-height:1.12; margin:0 0 8px; font-weight:800}
+  .lead{font-size:18px; color:#cdd6ea; margin:10px 0 18px}
+  .tag{display:inline-block; background:rgba(139,92,246,.18); padding:8px 12px; border-radius:999px; font-weight:700; letter-spacing:.04em}
+
+  /* Filters */
+  .filters{background:var(--glass); border:1px solid var(--soft); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+  .filter-row{display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr .9fr; gap:10px}
+  @media (max-width:980px){ .filter-row{grid-template-columns:1fr 1fr; row-gap:12px} }
+  input, select{
+    width:100%; padding:12px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.07); color:#fff; outline:none;
+  }
+  input::placeholder{color:#d7dff2}
+  label{font-size:12px; color:#d7dff2; display:block; margin:0 0 6px}
+
+  /* Roles */
+  .roles{display:grid; gap:14px; margin-top:16px}
+  .card{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius); padding:16px; box-shadow:0 10px 24px rgba(0,0,0,.12);
+    transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:var(--shadow); background:rgba(255,255,255,.07)}
+  .card-head{display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px}
+  .role-title{font-size:18px; font-weight:700; margin:0}
+  .meta{font-size:13px; color:#cdd6ea}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+  .chip{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(139,92,246,.18); border:1px solid rgba(139,92,246,.35); font-weight:700}
+  .drawer{display:none; margin-top:12px; border-top:1px dashed rgba(255,255,255,.18); padding-top:12px}
+  .drawer.open{display:block}
+  .small{font-size:14px; color:#e8eeff}
+  .row{display:flex; gap:10px; flex-wrap:wrap}
+  .row .btn{padding:10px 14px}
+
+  /* Sections */
+  .section{padding:52px 0}
+  h2.section-title{font-size:28px; margin:0 0 8px; font-weight:800}
+  p.mute{color:#cdd6ea; margin:6px 0 0}
+
+  .grid-3{display:grid; gap:14px; grid-template-columns:repeat(3,1fr)}
+  @media (max-width:980px){ .grid-3{grid-template-columns:1fr} }
+
+  .benefit, .value{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius); padding:18px; min-height:120px
+  }
+  .benefit h3, .value h3{margin:0 0 6px; font-size:18px}
+
+  /* Timeline */
+  .timeline{position:relative; padding-left:20px}
+  .timeline:before{content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,.18)}
+  .t-item{position:relative; padding:12px 0 12px 16px}
+  .t-item:before{content:""; position:absolute; left:-2px; top:16px; width:10px; height:10px; border-radius:50%; background:var(--purple); box-shadow:0 0 0 3px rgba(139,92,246,.25)}
+
+  /* FAQ */
+  details{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:12px 14px
+  }
+  details+details{margin-top:10px}
+  summary{cursor:pointer; font-weight:700}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(90deg, rgba(11,31,52,.9), rgba(139,92,246,.18));
+    border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px;
+    display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center
+  }
+  @media (max-width:760px){ .cta{grid-template-columns:1fr} }
+
+  /* Reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:all .5s ease}
+  .reveal.visible{opacity:1; transform:none}
+</style>
+</head>
+<body>
+
+<header class="mini-header" aria-label="Secondary navigation">
+  <nav class="nav wrap">
+    <div class="brand">MEHErix — Careers</div>
+    <div class="spacer"></div>
+    <a class="pill" href="#open-roles">Open roles</a>
+    <a class="pill" href="#benefits">Benefits</a>
+    <a class="pill" href="#culture">Culture</a>
+    <a class="pill" href="#faq">FAQ</a>
+    <a class="btn primary" href="mailto:careers@meherix.com?subject=Open%20application">Open application</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap grid-hero">
+    <div class="reveal">
+      <span class="tag">Join the Team</span>
+      <h1>Build ethical AI that reduces waste and powers smarter decisions.</h1>
+      <p class="lead">We’re a Finland-based AI & Data company. Small team, big impact. Ownership, autonomy, and a product you can be proud of.</p>
+      <a class="btn primary" href="#open-roles">See open roles</a>
+      <a class="btn ghost" href="mailto:careers@meherix.com?subject=Open%20application">Send open application</a>
+    </div>
+    <div class="reveal">
+      <img alt="Team at work" src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop">
+    </div>
+  </div>
+</section>
+
+<section id="open-roles" class="section">
+  <div class="wrap">
+    <h2 class="section-title">Open roles</h2>
+    <p class="mute">Search and filter. We hire for talent and potential — if you don’t tick every box, apply anyway.</p>
+
+    <!-- Filters -->
+    <div class="filters reveal" role="region" aria-label="Job filters">
+      <div class="filter-row">
+        <div>
+          <label for="q">Search</label>
+          <input id="q" type="search" placeholder="Search roles, e.g., data, dashboard, Python">
+        </div>
+        <div>
+          <label for="team">Team</label>
+          <select id="team">
+            <option value="">All teams</option>
+            <option>Data Science</option>
+            <option>Engineering</option>
+            <option>Product</option>
+            <option>Design</option>
+            <option>Business</option>
+          </select>
+        </div>
+        <div>
+          <label for="loc">Location</label>
+          <select id="loc">
+            <option value="">Any</option>
+            <option>Helsinki (Hybrid)</option>
+            <option>Vantaa (On-site)</option>
+            <option>Remote (EU)</option>
+          </select>
+        </div>
+        <div>
+          <label for="type">Type</label>
+          <select id="type">
+            <option value="">Any</option>
+            <option>Full-time</option>
+            <option>Internship</option>
+            <option>Part-time</option>
+            <option>Thesis</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="new">Newest</option>
+            <option value="az">A → Z</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roles -->
+    <div id="roles" class="roles"></div>
+  </div>
+</section>
+
+<section id="benefits" class="section">
+  <div class="wrap">
+    <h2 class="section-title">Benefits</h2>
+    <p class="mute">Support to do your best work — and a life outside of it.</p>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="benefit reveal">
+        <h3>Flexible & Remote</h3>
+        <p>Hybrid in Helsinki/Vantaa or remote in EU timezones. Async-first culture.</p>
+      </div>
+      <div class="benefit reveal">
+        <h3>Learning Budget</h3>
+        <p>Courses, books, certifications — level up in AI, Fabric, and UX.</p>
+      </div>
+      <div class="benefit reveal">
+        <h3>Impact & Ownership</h3>
+        <p>Shipped work touches real kitchens, reduces waste, and saves costs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="culture" class="section">
+  <div class="wrap">
+    <h2 class="section-title">Culture & Values</h2>
+    <p class="mute">Simple rules, high standards, kind people.</p>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="value reveal"><h3>Clarity</h3><p>We write and share decisions. Clear docs, clear dashboards.</p></div>
+      <div class="value reveal"><h3>Impact</h3><p>Focus on outcomes that matter to customers and the planet.</p></div>
+      <div class="value reveal"><h3>Integrity</h3><p>We build responsibly. Privacy by design, ethics at the core.</p></div>
+    </div>
+
+    <div class="timeline" style="margin-top:22px">
+      <div class="t-item reveal"><h4>Week 1</h4><p>Meet the team, ship your first small improvement.</p></div>
+      <div class="t-item reveal"><h4>Month 1</h4><p>Own a feature end-to-end — from data to dashboard.</p></div>
+      <div class="t-item reveal"><h4>Quarter 1</h4><p>Lead an initiative that reduces waste at a pilot restaurant.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="wrap">
+    <h2 class="section-title">FAQ</h2>
+    <div class="reveal">
+      <details><summary>Do you sponsor visas?</summary><p>For select roles we can consider EU relocation; remote within the EU is common.</p></details>
+      <details><summary>What’s the interview process?</summary><p>Short intro → practical task → portfolio/code review → meet the team → offer.</p></details>
+      <details><summary>Can I apply for multiple roles?</summary><p>Yes. Or send an open application — we match people to problems.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap cta reveal">
+    <div>
+      <h2 class="section-title" style="margin:0 0 6px">Don’t see your role?</h2>
+      <p class="mute" style="margin:0">Tell us what you’d like to build. We read every application.</p>
+    </div>
+    <div class="row">
+      <a class="btn ghost" href="mailto:careers@meherix.com?subject=Open%20application">careers@meherix.com</a>
+      <a class="btn primary" href="mailto:careers@meherix.com?subject=Application%3A%20Role%20at%20MEHErix">Apply now</a>
+    </div>
+  </div>
+</section>
+
+<footer class="section" style="padding-top:16px">
+  <div class="wrap" style="text-align:center; color:#b9c6e6">© <span id="y"></span> MEHErix — Insight Shines Through</div>
+</footer>
+
+<script>
+/* ---------- Sample roles data (edit this to your needs) ---------- */
+const JOBS = [
+  {
+    id:'ds-ml', title:'Data Scientist (Forecasting & Causal)',
+    team:'Data Science', location:'Helsinki (Hybrid)', type:'Full-time', posted:'2025-11-01',
+    tags:['Python','Time series','Fabric','Azure ML'],
+    intro:'Own demand forecasting that powers daily prep suggestions for kitchens.',
+    about:[
+      'Build & evaluate forecasting models (Prophet, XGBoost, SARIMAX).',
+      'Design experiments to measure waste reduction and cost savings.',
+      'Ship explainable insights to dashboards (Power BI Embedded).'
+    ],
+    must:['3+ yrs in ML/DS','Strong SQL + Python','Forecasting experience'],
+    nice:['Causal inference','MLOps on Azure','Power BI / DAX'],
+    apply:'careers@meherix.com'
+  },
+  {
+    id:'de-fabric', title:'Data Engineer (Fabric/Lakehouse)',
+    team:'Engineering', location:'Remote (EU)', type:'Full-time', posted:'2025-10-25',
+    tags:['Fabric','Delta','Pipelines','SQL'],
+    intro:'Build reliable data pipelines from POS & inventory to the lakehouse.',
+    about:[
+      'Model curated tables for reporting & ML features.',
+      'Automate ingestion, validation, and lineage.',
+      'Harden security with RBAC and workspace-per-tenant.'
+    ],
+    must:['2+ yrs data engineering','SQL + Python or PySpark','ETL/ELT best practices'],
+    nice:['Azure DevOps','APIM','Cost optimization'],
+    apply:'careers@meherix.com'
+  },
+  {
+    id:'pm', title:'Product Manager (Dashboards)',
+    team:'Product', location:'Vantaa (On-site)', type:'Full-time', posted:'2025-10-18',
+    tags:['Discovery','Power BI','Stakeholders'],
+    intro:'Own the restaurant dashboard experience end-to-end.',
+    about:[
+      'Talk to managers & chefs, turn needs into clear roadmap.',
+      'Define success metrics and run lean experiments.',
+      'Coordinate design, data, and engineering for quality delivery.'
+    ],
+    must:['Strong discovery chops','Excellent writing & prioritization'],
+    nice:['BI tooling','Foodtech experience'],
+    apply:'careers@meherix.com'
+  },
+  {
+    id:'ux', title:'Product Designer (UX/UI)',
+    team:'Design', location:'Remote (EU)', type:'Part-time', posted:'2025-10-10',
+    tags:['Figma','Design systems','Accessibility'],
+    intro:'Design beautiful, accessible interfaces for kitchen analytics.',
+    about:[
+      'Craft flows and components that scale across web + mobile.',
+      'Run usability tests with real users.',
+      'Collaborate closely with PM and DS.'
+    ],
+    must:['Figma proficiency','Strong portfolio'],
+    nice:['Charts/BI experience','Motion micro-interactions'],
+    apply:'careers@meherix.com'
+  },
+  {
+    id:'intern', title:'AI Intern (Thesis/Internship)',
+    team:'Business', location:'Helsinki (Hybrid)', type:'Thesis', posted:'2025-09-28',
+    tags:['Python','Experimentation','Documentation'],
+    intro:'Help prototype menu-level waste prediction for buffet restaurants.',
+    about:[
+      'Explore features from POS, calendar, weather.',
+      'Benchmark baselines and write clear notes.',
+      'Present results to the team.'
+    ],
+    must:['Python basics','Curiosity & grit'],
+    nice:['Forecasting','Power BI','Fabric'],
+    apply:'careers@meherix.com'
+  }
+];
+
+/* ---------- Helpers ---------- */
+const $ = s => document.querySelector(s);
+const el = (t, cls) => { const n=document.createElement(t); if(cls) n.className = cls; return n; };
+const byId = id => document.getElementById(id);
+
+/* Render roles list */
+function renderRoles(list){
+  const box = byId('roles');
+  box.innerHTML = '';
+  if(!list.length){
+    const empty = el('div','card'); empty.innerHTML = '<p class="small">No roles match your filters. Try clearing search or choosing a different team/location.</p>';
+    box.appendChild(empty); return;
+  }
+  list.forEach(job=>{
+    const card = el('article','card reveal'); card.setAttribute('data-id', job.id);
+    // head
+    const head = el('div','card-head');
+    const left = el('div'); const right = el('div','row');
+    const h = el('h3','role-title'); h.textContent = job.title;
+    const meta = el('div','meta'); meta.textContent = `${job.team} • ${job.location} • ${job.type}`;
+    left.append(h, meta);
+    const moreBtn = el('button','btn ghost'); moreBtn.textContent = 'Details';
+    moreBtn.setAttribute('aria-expanded','false');
+    const applyBtn = el('a','btn primary'); applyBtn.textContent='Apply';
+    applyBtn.href=`mailto:${job.apply}?subject=Application%3A%20${encodeURIComponent(job.title)}`;
+    right.append(moreBtn, applyBtn);
+    head.append(left,right);
+
+    // chips
+    const chips = el('div','chips');
+    job.tags.forEach(t=>{ const c=el('span','chip'); c.textContent=t; chips.appendChild(c); });
+
+    // drawer
+    const drawer = el('div','drawer'); drawer.id = `drawer-${job.id}`;
+    const intro = el('p','small'); intro.textContent = job.intro;
+
+    const mkList = (title, items) => {
+      const w = el('div'); const th = el('p','small'); th.innerHTML = `<strong>${title}</strong>`;
+      const ul = el('ul'); ul.style.margin = '6px 0 10px';
+      items.forEach(i=>{ const li = el('li'); li.textContent = i; ul.appendChild(li); });
+      w.append(th, ul); return w;
+    };
+
+    drawer.append(intro, mkList('What you’ll do', job.about), mkList('Must have', job.must), mkList('Nice to have', job.nice));
+
+    // toggle handler
+    moreBtn.addEventListener('click', ()=>{
+      const open = drawer.classList.toggle('open');
+      moreBtn.setAttribute('aria-expanded', String(open));
+      moreBtn.textContent = open ? 'Hide' : 'Details';
+    });
+
+    card.append(head, chips, drawer);
+    box.appendChild(card);
+  });
+  // reveal animation
+  document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
+}
+
+/* Filter / sort logic */
+function applyFilters(){
+  const q = byId('q').value.toLowerCase().trim();
+  const team = byId('team').value;
+  const loc = byId('loc').value;
+  const type = byId('type').value;
+  const sort = byId('sort').value;
+
+  let res = JOBS.filter(j=>{
+    const text = (j.title+' '+j.team+' '+j.location+' '+j.type+' '+j.tags.join(' ')+' '+j.intro).toLowerCase();
+    const okQ = !q || text.includes(q);
+    const okTeam = !team || j.team===team;
+    const okLoc = !loc || j.location===loc;
+    const okType = !type || j.type===type;
+    return okQ && okTeam && okLoc && okType;
+  });
+
+  if(sort==='az') res.sort((a,b)=> a.title.localeCompare(b.title));
+  else res.sort((a,b)=> new Date(b.posted) - new Date(a.posted));
+
+  renderRoles(res);
+}
+
+/* Reveal on scroll */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+},{threshold:.16});
+
+/* Init */
+['q','team','loc','type','sort'].forEach(id=> byId(id).addEventListener('input', applyFilters));
+document.getElementById('y').textContent = new Date().getFullYear();
+applyFilters();
+</script>
+</body>
+</html>

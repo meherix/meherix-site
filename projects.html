@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — MEHErix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2b46;           /* deep brand blue */
+    --ink2:#0b1f34;
+    --purple:#8B5CF6;        /* brand purple */
+    --paper:#ffffff;
+    --muted:#cdd6ea;
+    --soft:rgba(255,255,255,.10);
+    --glass:rgba(16,28,52,.55);
+    --radius:16px;
+    --shadow:0 14px 36px rgba(0,0,0,.20);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+    color:#e9f0ff;
+    background:
+      radial-gradient(1200px 800px at 12% -10%, rgba(139,92,246,.12), transparent 60%),
+      linear-gradient(81deg, #2d3661 0%, #000b24 100%);
+  }
+  a{color:#fff; text-decoration:none}
+  img{max-width:100%; height:auto; display:block}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 22px}
+
+  /* Header (lightweight) */
+  .mini-header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(6px);
+    background:rgba(10,20,40,.6); border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav{display:flex; align-items:center; gap:16px; padding:12px 22px}
+  .brand{font-weight:800; letter-spacing:.3px}
+  .nav .spacer{flex:1}
+  .pill{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px}
+  .btn{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:700; border:1px solid rgba(255,255,255,.22)}
+  .btn.primary{background:var(--purple); color:#fff; box-shadow:0 10px 24px rgba(0,0,0,.25)}
+  .btn.ghost{background:transparent}
+
+  /* Hero */
+  .hero{padding:86px 0 38px}
+  h1{font-size:40px; line-height:1.12; margin:0 0 8px; font-weight:800}
+  .lead{font-size:18px; color:#cdd6ea; margin:10px 0 18px}
+  .tag{display:inline-block; background:rgba(139,92,246,.18); padding:8px 12px; border-radius:999px; font-weight:700; letter-spacing:.04em}
+
+  /* Tabs + Filters */
+  .tabs{display:flex; gap:8px; margin:8px 0 14px}
+  .tab{padding:10px 14px; border-radius:999px; border:1px solid var(--soft); background:rgba(255,255,255,.06); cursor:pointer; font-weight:700}
+  .tab[aria-selected="true"]{background:var(--purple); border-color:transparent}
+  .filters{background:var(--glass); border:1px solid var(--soft); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+  .filter-row{display:grid; grid-template-columns:1.2fr 1fr 1fr .9fr; gap:10px}
+  @media (max-width:980px){ .filter-row{grid-template-columns:1fr 1fr; row-gap:12px} }
+  input, select{
+    width:100%; padding:12px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.07); color:#fff; outline:none;
+  }
+  input::placeholder{color:#d7dff2}
+  label{font-size:12px; color:#d7dff2; display:block; margin:0 0 6px}
+
+  /* Cards */
+  .grid{display:grid; gap:14px; margin-top:16px}
+  .card{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--radius); padding:16px; box-shadow:0 10px 24px rgba(0,0,0,.12);
+    transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow:var(--shadow); background:rgba(255,255,255,.07)}
+  .card-head{display:grid; grid-template-columns:1fr auto; align-items:center; gap:10px}
+  .title{font-size:18px; font-weight:800; margin:0}
+  .meta{font-size:13px; color:#cdd6ea}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+  .chip{font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(139,92,246,.18); border:1px solid rgba(139,92,246,.35); font-weight:700}
+  .row{display:flex; gap:10px; flex-wrap:wrap}
+  .drawer{display:none; margin-top:12px; border-top:1px dashed rgba(255,255,255,.18); padding-top:12px}
+  .drawer.open{display:block}
+  .small{font-size:14px; color:#e8eeff}
+  .progress{height:8px; border-radius:999px; background:rgba(255,255,255,.12); overflow:hidden}
+  .bar{height:100%; background:linear-gradient(90deg,#7c4dff,#8B5CF6); width:0}
+
+  /* Timeline for upcoming */
+  .timeline{position:relative; padding-left:20px}
+  .timeline:before{content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,.18)}
+  .t-item{position:relative; padding:12px 0 12px 16px}
+  .t-item:before{content:""; position:absolute; left:-2px; top:16px; width:10px; height:10px; border-radius:50%; background:var(--purple); box-shadow:0 0 0 3px rgba(139,92,246,.25)}
+  .t-item h4{margin:0 0 4px; font-size:16px}
+
+  /* Reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:all .5s ease}
+  .reveal.visible{opacity:1; transform:none}
+</style>
+</head>
+<body>
+
+<header class="mini-header" aria-label="Secondary navigation">
+  <nav class="nav wrap">
+    <a href="main.html" class="brand">MEHErix — Projects</a>
+    <div class="spacer"></div>
+    <a class="pill" href="#running">Running</a>
+    <a class="pill" href="#upcoming">Upcoming</a>
+    <a class="btn primary" href="mailto:projects@meherix.com?subject=Project%20enquiry">Start a project</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Live & Next</span>
+    <h1>Projects that turn data into intelligent action.</h1>
+    <p class="lead">Real kitchens. Real savings. Here’s what we’re building now — and what’s coming next.</p>
+
+    <!-- Tabs -->
+    <div class="tabs" role="tablist" aria-label="Project views">
+      <button id="tab-running" class="tab" role="tab" aria-controls="panel-running" aria-selected="true">Running</button>
+      <button id="tab-upcoming" class="tab" role="tab" aria-controls="panel-upcoming" aria-selected="false">Upcoming</button>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters reveal" role="region" aria-label="Project filters">
+      <div class="filter-row">
+        <div>
+          <label for="q">Search</label>
+          <input id="q" type="search" placeholder="Search projects, e.g., waste, dashboard, forecasting">
+        </div>
+        <div>
+          <label for="cat">Category</label>
+          <select id="cat">
+            <option value="">All</option>
+            <option>Forecasting</option>
+            <option>Dashboard</option>
+            <option>Vision/Edge</option>
+            <option>Data Platform</option>
+            <option>SaaS</option>
+          </select>
+        </div>
+        <div>
+          <label for="owner">Owner</label>
+          <select id="owner">
+            <option value="">Anyone</option>
+            <option>MEHErix</option>
+            <option>Client</option>
+            <option>Joint</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="recent">Most recent</option>
+            <option value="az">A → Z</option>
+            <option value="progress">Progress</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Panels -->
+<section id="panel-running" class="wrap" role="tabpanel" aria-labelledby="tab-running">
+  <div id="running" class="grid"></div>
+</section>
+
+<section id="panel-upcoming" class="wrap" role="tabpanel" aria-labelledby="tab-upcoming" hidden>
+  <div id="upcoming" class="grid"></div>
+</section>
+
+<footer class="footer-cta" id="contact">
+  <style>
+    .site-footer {
+      background: linear-gradient(165deg, #1d3557 0%, #0d1b2a 100%);
+      box-shadow: 0 -10px 40px rgba(29, 53, 87, .1);
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      max-width: var(--maxw, 1120px);
+      margin: 2rem auto 0;
+      padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+      color: #fff;
+      border-radius: 22px 22px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: clamp(1rem, 2vw, 2rem);
+      align-items: start;
+    }
+    .footer-brand h4 {
+      margin: 0 0 .5rem;
+      font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: #fff; /* Set to bright white */
+    }
+    .footer-brand p { margin: 0 0 1rem; color: rgba(255,255,255,.75); }
+    .footer-social { display: flex; gap: .6rem; }
+    .footer-social a {
+      display: inline-grid; place-items: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .footer-social a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.22);
+    }
+    .footer-col h4 {
+      margin: 0 0 .75rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .footer-col ul {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; gap: .5rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      transition: opacity .15s ease, transform .1s ease;
+    }
+    .footer-col a:hover { opacity: 1; text-decoration: underline; }
+    .footer-sep {
+      margin: clamp(1.5rem, 3vw, 2rem) 0;
+      height: 1px; border: 0;
+      background: linear-gradient(to right, rgba(255,255,255,.08), rgba(255,255,255,.25), rgba(255,255,255,.08));
+    }
+    .footer-bottom {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: .75rem 1rem; justify-content: space-between;
+      color: rgba(255,255,255,.85); font-size: .95rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,.9); text-decoration: none; }
+    .footer-bottom a:hover { text-decoration: underline; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: .5rem; }
+    }
+  </style>
+
+  <div class="site-footer">
+    <div class="footer-grid">
+      <!-- Brand & Social -->
+      <div class="footer-brand">
+        <h4>MEHErix – Insight Shines Through</h4>
+        <p>AI &amp; Data Innovation Company<br>Orvokkitie 3C 19, O1300 Vantaa, Finland<br>Business ID: 000000</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+          </a>
+          <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="mailto:info@meherix.fi" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="footer-col">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- SaaS -->
+      <div class="footer-col">
+        <h4>SaaS</h4>
+        <ul>
+          <li><a href="std.html">aPOD-Student Intelligent Dashboard</a></li>
+        </ul>
+      </div>
+
+      <!-- PaaS -->
+      <div class="footer-col">
+        <h4>PaaS</h4>
+        <ul>
+          <li><a href="kitchen.html">ServeSmartAI-Kitchen Intelligent Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-sep" />
+
+    <div class="footer-bottom">
+      <div>© <span id="y"></span> MEHErix Oy. All rights reserved</div>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <span style="opacity:.6; padding:0 .6rem;">–</span>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){ var n=document.getElementById('y'); if(n && !n.textContent) n.textContent=new Date().getFullYear(); })();
+  </script>
+</footer>
+
+<script>
+/* ------------------ Sample Data ------------------ */
+const RUNNING = [
+  {
+    id:'smartserve-helsinki',
+    title:'SmartServeAI — Buffet Waste Forecast (Helsinki Pilot)',
+    category:'Forecasting',
+    owner:'Joint',
+    tags:['XGBoost','Time Series','Azure Functions','Power BI Embedded'],
+    progress:72,
+    summary:'Daily meal demand prediction with prep-size recommendations and waste tracking.',
+    started:'2025-09-15',
+    link:'#',
+    milestones:[
+      {t:'Data pipeline from POS & inventory', done:true},
+      {t:'Baseline forecasting (SARIMAX/XGB)', done:true},
+      {t:'Production API + dashboard', done:false},
+      {t:'RLS & multi-tenant pilot', done:false}
+    ]
+  },
+  {
+    id:'kitchen-vision-edge',
+    title:'Edge-AI: Food Waste Detection (Kitchen Cam)',
+    category:'Vision/Edge',
+    owner:'MEHErix',
+    tags:['Edge AI','OpenCV','OnnxRuntime','Azure IoT'],
+    progress:46,
+    summary:'Camera-based tray monitoring to estimate leftover food in real time.',
+    started:'2025-08-02',
+    link:'#',
+    milestones:[
+      {t:'Dataset bootstrapping & labeling', done:true},
+      {t:'Prototype model on Jetson Nano', done:true},
+      {t:'Edge pipeline + cloud eventing', done:false},
+      {t:'Kitchen validation & calibration', done:false}
+    ]
+  },
+  {
+    id:'apod',
+    title:'aPOD — Student Learning Snapshot (SaaS)',
+    category:'SaaS',
+    owner:'MEHErix',
+    tags:['Multi-tenant','Auth (B2C)','Firestore/SQL','Flutter'],
+    progress:30,
+    summary:'Daily learning picture, tutor insights, and parent notifications.',
+    started:'2025-07-01',
+    link:'#',
+    milestones:[
+      {t:'MVP UX flows', done:true},
+      {t:'Auth & roles', done:false},
+      {t:'Payments & plans', done:false}
+    ]
+  }
+];
+
+const UPCOMING = [
+  {
+    id:'smartserve-expansion',
+    title:'SmartServeAI City Expansion (Espoo & Vantaa)',
+    category:'Data Platform',
+    owner:'Client',
+    eta:'2026-Q1',
+    tags:['Fabric','Delta','APIM','RLS'],
+    roadmap:[
+      {t:'Workspace-per-tenant setup'},
+      {t:'Unified schema + ingestion'},
+      {t:'Embedded dashboards roll-out'}
+    ],
+    notes:'Scale the pilot to two additional buffet locations with shared models.'
+  },
+  {
+    id:'menu-optimizer',
+    title:'Menu Optimizer — Price & Portion Sizing',
+    category:'Dashboard',
+    owner:'Joint',
+    eta:'2026-Q2',
+    tags:['Power BI','Causal','A/B tests'],
+    roadmap:[
+      {t:'Elasticity modeling'},
+      {t:'Kitchen experiment design'},
+      {t:'Decision UI for managers'}
+    ],
+    notes:'Blend sales, seasonality, and feedback to recommend profitable menus.'
+  }
+];
+
+/* ------------------ Helpers ------------------ */
+const $ = s => document.querySelector(s);
+const el = (t, cls) => { const n=document.createElement(t); if(cls) n.className = cls; return n; };
+const byId = id => document.getElementById(id);
+
+/* Progress bar animation */
+function animateBar(node, pct){
+  requestAnimationFrame(()=> node.style.width = Math.max(0, Math.min(100, pct)) + '%');
+}
+
+/* Card renderers */
+function cardRunning(p){
+  const card = el('article','card reveal'); card.dataset.id = p.id;
+
+  const head = el('div','card-head');
+  const left = el('div');
+  const title = el('h3','title'); title.textContent = p.title;
+  const meta = el('div','meta'); meta.textContent = `${p.category} • ${p.owner} • since ${p.started}`;
+  left.append(title, meta);
+
+  const actions = el('div','row');
+  const more = el('button','btn ghost'); more.textContent='Details'; more.setAttribute('aria-expanded','false');
+  const open = el('a','btn primary'); open.textContent='Open'; open.href=p.link || '#';
+  actions.append(more, open);
+  head.append(left, actions);
+
+  const chips = el('div','chips');
+  p.tags.forEach(t=>{ const c=el('span','chip'); c.textContent=t; chips.appendChild(c); });
+
+  const summary = el('p','small'); summary.textContent = p.summary;
+
+  const progress = el('div','progress'); const bar = el('div','bar'); progress.append(bar);
+  setTimeout(()=> animateBar(bar, p.progress), 60);
+
+  const drawer = el('div','drawer');
+  const ul = el('ul'); ul.style.margin='6px 0 0';
+  p.milestones.forEach(m=>{ const li=el('li'); li.textContent = (m.done?'✅ ':'⬜ ') + m.t; ul.appendChild(li); });
+  drawer.append(ul);
+
+  more.addEventListener('click', ()=>{
+    const is = drawer.classList.toggle('open');
+    more.setAttribute('aria-expanded', String(is));
+    more.textContent = is ? 'Hide' : 'Details';
+  });
+
+  card.append(head, chips, summary, progress, drawer);
+  return card;
+}
+
+function cardUpcoming(p){
+  const card = el('article','card reveal'); card.dataset.id = p.id;
+
+  const head = el('div','card-head');
+  const left = el('div');
+  const title = el('h3','title'); title.textContent = p.title;
+  const meta = el('div','meta'); meta.textContent = `${p.category} • ${p.owner} • ETA ${p.eta}`;
+  left.append(title, meta);
+
+  const actions = el('div','row');
+  const more = el('button','btn ghost'); more.textContent='Preview'; more.setAttribute('aria-expanded','false');
+  actions.append(more);
+  head.append(left, actions);
+
+  const chips = el('div','chips');
+  p.tags.forEach(t=>{ const c=el('span','chip'); c.textContent=t; chips.appendChild(c); });
+
+  const drawer = el('div','drawer');
+  const tl = el('div','timeline'); p.roadmap.forEach(step=>{
+    const item = el('div','t-item'); const h=el('h4'); h.textContent=step.t; item.append(h); tl.append(item);
+  });
+  const notes = el('p','small'); notes.textContent = p.notes;
+  drawer.append(tl, notes);
+
+  more.addEventListener('click', ()=>{
+    const is = drawer.classList.toggle('open');
+    more.setAttribute('aria-expanded', String(is));
+    more.textContent = is ? 'Hide' : 'Preview';
+  });
+
+  card.append(head, chips, drawer);
+  return card;
+}
+
+/* Filters + Sorting */
+function applyFilters(){
+  const q = byId('q').value.toLowerCase().trim();
+  const cat = byId('cat').value;
+  const owner = byId('owner').value;
+  const sort = byId('sort').value;
+
+  let running = RUNNING.filter(p=>{
+    const hay = (p.title+' '+p.summary+' '+p.tags.join(' ')+' '+p.category+' '+p.owner).toLowerCase();
+    const okQ = !q || hay.includes(q);
+    const okC = !cat || p.category===cat;
+    const okO = !owner || p.owner===owner;
+    return okQ && okC && okO;
+  });
+
+  let upcoming = UPCOMING.filter(p=>{
+    const hay = (p.title+' '+(p.notes||'')+' '+p.tags.join(' ')+' '+p.category+' '+p.owner).toLowerCase();
+    const okQ = !q || hay.includes(q);
+    const okC = !cat || p.category===cat;
+    const okO = !owner || p.owner===owner;
+    return okQ && okC && okO;
+  });
+
+  const byRecent = (a,b)=> new Date(b.started||b.eta) - new Date(a.started||a.eta);
+  const byAZ = (a,b)=> a.title.localeCompare(b.title);
+  const byProgress = (a,b)=> (b.progress||0) - (a.progress||0);
+
+  const sorter = sort==='az' ? byAZ : (sort==='progress' ? byProgress : byRecent);
+  running.sort(sorter); upcoming.sort(sorter);
+
+  renderList('#running', running.map(cardRunning));
+  renderList('#upcoming', upcoming.map(cardUpcoming));
+}
+
+function renderList(sel, nodes){
+  const root = $(sel); root.innerHTML='';
+  if(!nodes.length){
+    const empty = el('div','card'); empty.innerHTML = '<p class="small">No projects match your filters.</p>';
+    root.appendChild(empty); return;
+  }
+  nodes.forEach(n=> root.appendChild(n));
+  document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
+}
+
+/* Tabs */
+function setTab(which){
+  const runningTab = $('#tab-running'), upTab = $('#tab-upcoming');
+  const runningPanel = $('#panel-running'), upPanel = $('#panel-upcoming');
+
+  const isRunning = (which==='running');
+  runningTab.setAttribute('aria-selected', String(isRunning));
+  upTab.setAttribute('aria-selected', String(!isRunning));
+  runningPanel.hidden = !isRunning;
+  upPanel.hidden = isRunning;
+}
+
+/* Reveal on scroll */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+},{threshold:.16});
+
+/* Init */
+document.getElementById('y').textContent = new Date().getFullYear();
+['q','cat','owner','sort'].forEach(id=> byId(id).addEventListener('input', applyFilters));
+
+$('#tab-running').addEventListener('click', ()=> setTab('running'));
+$('#tab-upcoming').addEventListener('click', ()=> setTab('upcoming'));
+
+applyFilters();     // initial render
+setTab('running');  // default tab
+</script>
+</body>
+</html>
