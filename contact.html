@@ -129,7 +129,6 @@
             text-decoration: none;
         }
 
-        /* remove underline animation */
         .navlinks a:not(.btn)::after {
             content: '';
             position: absolute;
@@ -438,6 +437,19 @@
             color: #6b7280;
         }
 
+        .form-status {
+            margin-top: 6px;
+            font-size: 12px;
+        }
+
+        .form-status.success {
+            color: #15803d;
+        }
+
+        .form-status.error {
+            color: #b91c1c;
+        }
+
         @media (max-width: 900px) {
             .contact-shell {
                 grid-template-columns: minmax(0, 1fr);
@@ -586,15 +598,16 @@
                         </div>
 
                         <div class="form-actions">
-                            <button class="send-btn" type="submit">
+                            <button class="send-btn" type="submit" id="send-btn">
                                 <span class="icon">📨</span>
                                 <span data-translate-key="formSend">Send message to MEHErix</span>
                             </button>
                             <div class="form-note" data-translate-key="formNote">
-                                Your message will open in your email app and be sent to
-                                <strong>info@meherix.com</strong>.
+                                We’ll review your message and get back to you, usually within one business day.
                             </div>
                         </div>
+
+                        <div id="form-status" class="form-status" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -826,7 +839,7 @@
         </div>
     </footer>
 
-    <!-- scripts: nav toggle + particles + contact mailto + i18n -->
+    <!-- scripts: nav toggle + particles + contact submit + i18n -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
     <script>
         // ====== TRANSLATIONS ======
@@ -860,7 +873,7 @@
                 formTimelineOption4: "Within 6–12 months",
                 formTimelineOption5: "More than 12 months",
                 formSend: "Send message to MEHErix",
-                formNote: "Your message will open in your email app and be sent to <strong>info@meherix.com</strong>."
+                formNote: "We’ll review your message and get back to you, usually within one business day."
             },
             fi: {
                 navHome: "Koti",
@@ -891,7 +904,7 @@
                 formTimelineOption4: "6–12 kuukauden kuluessa",
                 formTimelineOption5: "Yli 12 kuukautta",
                 formSend: "Lähetä viesti MEHErixille",
-                formNote: "Viestisi avautuu sähköpostisovelluksessasi ja lähetetään osoitteeseen <strong>info@meherix.com</strong>."
+                formNote: "Käsittelemme viestisi ja otamme sinuun yhteyttä, yleensä yhden arkipäivän kuluessa."
             },
             sv: {
                 navHome: "Hem",
@@ -922,7 +935,7 @@
                 formTimelineOption4: "Inom 6–12 månader",
                 formTimelineOption5: "Mer än 12 månader",
                 formSend: "Skicka meddelande till MEHErix",
-                formNote: "Ditt meddelande öppnas i din e-postapp och skickas till <strong>info@meherix.com</strong>."
+                formNote: "Vi går igenom ditt meddelande och återkommer, vanligtvis inom en arbetsdag."
             }
         };
 
@@ -1016,11 +1029,15 @@
             }
         })();
 
-        // contact form -> mailto
+        // ====== CONTACT FORM → Web3Forms (AJAX, stays on page) ======
         const form = document.getElementById("meherix-contact-form");
+        const statusEl = document.getElementById("form-status");
+        const sendBtn = document.getElementById("send-btn");
 
-        form.addEventListener("submit", (e) => {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            statusEl.textContent = "";
+            statusEl.className = "form-status";
 
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -1030,29 +1047,55 @@
             const budget = document.getElementById("budget").value;
             const timeline = document.getElementById("timeline").value;
 
-            const subject = `New MEHErix contact from ${name || "website visitor"}`;
-            const bodyLines = [
-                `Name: ${name}`,
-                `Email: ${email}`,
-                `Company: ${company}`,
-                `Role: ${role}`,
-                `Budget: ${budget || "Not specified"}`,
-                `Timeline: ${timeline || "Not specified"}`,
-                "",
-                "Message:",
-                message,
-            ];
+            if (!name || !email || !message) {
+                statusEl.textContent = "Please fill in all required fields (*).";
+                statusEl.classList.add("error");
+                return;
+            }
 
-            const body = bodyLines.join("\n");
+            const payload = {
+                access_key: "fc7cccef-e1de-4f82-b77e-49b584a7407a", // ⬅️ replace with your real key
+                subject: `New MEHErix contact from ${name || "website visitor"}`,
+                name,
+                email,
+                company,
+                role,
+                budget: budget || "Not specified",
+                timeline: timeline || "Not specified",
+                message
+            };
 
-            const mailtoUrl =
-                "mailto:info@meherix.com" +
-                "?subject=" +
-                encodeURIComponent(subject) +
-                "&body=" +
-                encodeURIComponent(body);
+            sendBtn.disabled = true;
+            const originalText = sendBtn.innerHTML;
+            sendBtn.innerHTML = '<span class="icon">⏳</span><span>Sending...</span>';
 
-            window.location.href = mailtoUrl;
+            try {
+                const res = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    statusEl.textContent = "Message sent successfully. We’ll get back to you soon.";
+                    statusEl.classList.add("success");
+                    form.reset();
+                } else {
+                    statusEl.textContent = data.message || "Something went wrong. Please try again.";
+                    statusEl.classList.add("error");
+                }
+            } catch (err) {
+                statusEl.textContent = "Network error. Please check your connection and try again.";
+                statusEl.classList.add("error");
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = originalText;
+            }
         });
     </script>
 </body>
