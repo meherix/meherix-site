@@ -2,1000 +2,1059 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>MEHErix — Insight Shines Through</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>MEHErix — Insight Shines Through</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description"
-    content="Contact MEHErix – AI & Data Innovation Company in Finland. Tell us about your use case and we’ll explore how data and AI can create impact." />
-  <link rel="icon" href="logo2.png" />
+    <meta name="description"
+        content="Contact MEHErix – AI & Data Innovation Company in Finland. Tell us about your use case and we’ll explore how data and AI can create impact." />
+    <link rel="icon" href="logo2.png" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400&display=swap"
-    rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --light: #f8f9fa;
-      --ink: #1d3557;
-      --text: #457b9d;
-      --muted: #6c757d;
-      --card: #ffffff;
-      --brand: #0077b6;
-      --brand-ink: #ffffff;
-      --line: #dee2e6;
-      --shadow: 0 8px 24px rgba(29, 53, 87, .08);
-      --radius: 14px;
-      --maxw: 1120px;
-    }
+    <style>
+        :root {
+            --bg: #ffffff;
+            --light: #f8f9fa;
+            --ink: #1d3557;
+            --text: #457b9d;
+            --muted: #6c757d;
+            --card: #ffffff;
+            --brand: #0077b6;
+            --brand-ink: #ffffff;
+            --line: #dee2e6;
+            --shadow: 0 8px 24px rgba(29, 53, 87, .08);
+            --radius: 14px;
+            --maxw: 1120px;
+        }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      padding-top: 70px;
-      position: relative;
-      min-height: 100vh;
-    }
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            padding-top: 70px;
+            position: relative;
+            min-height: 100vh;
+        }
 
-    /* moving network background */
-    #tsparticles {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-    }
+        /* moving network background */
+        #tsparticles {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
 
-    /* NAVBAR */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      backdrop-filter: saturate(130%) blur(6px);
-      background: rgba(255, 255, 255, .85);
-      z-index: 10;
-      border-bottom: 1px solid var(--line);
-    }
+        /* NAVBAR */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backdrop-filter: saturate(130%) blur(6px);
+            background: rgba(255, 255, 255, .85);
+            z-index: 10;
+            border-bottom: 1px solid var(--line);
+        }
 
-    .container {
-      width: min(100%, var(--maxw));
-      margin-inline: auto;
-      padding-inline: clamp(1rem, 4vw, 2rem)
-    }
+        .container {
+            width: min(100%, var(--maxw));
+            margin-inline: auto;
+            padding-inline: clamp(1rem, 4vw, 2rem)
+        }
 
-    .nav__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .8rem 0
-    }
+        .nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .8rem 0
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: .3px;
-      text-decoration: none;
-    }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--ink);
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-decoration: none;
+        }
 
-    .brand__logo {
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      background-image: url('logo2.png');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
-      transition: .3s ease;
-    }
+        .brand__logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background-image: url('logo2.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
+            transition: .3s ease;
+        }
 
-    .brand:hover .brand__logo {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
-    }
+        .brand:hover .brand__logo {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
+        }
 
-    .navlinks {
-      display: flex;
-      gap: 1.5rem;
-      font-weight: 600;
-      align-items: center;
-    }
+        .navlinks {
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 600;
+            align-items: center;
+            transition: all .25s ease;
+            transform-origin: top center;
+        }
 
-    .navlinks a:not(.btn) {
-      position: relative;
-      padding: 4px 0;
-      transition: color .2s, transform .1s;
-      text-decoration: none;
-    }
+        .navlinks a:not(.btn) {
+            position: relative;
+            padding: 4px 0;
+            transition: color .2s, transform .1s;
+            text-decoration: none;
+        }
 
-    /* remove underline animation */
-    .navlinks a:not(.btn)::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: var(--brand);
-      bottom: 0;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform .3s;
-    }
+        /* remove underline animation */
+        .navlinks a:not(.btn)::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--brand);
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform .3s;
+        }
 
-    .navlinks a:not(.btn):hover {
-      color: var(--brand);
-    }
+        .navlinks a:not(.btn):hover {
+            color: var(--brand);
+        }
 
-    .navlinks a:not(.btn):hover::after {
-      transform: scaleX(1);
-    }
+        .navlinks a:not(.btn):hover::after {
+            transform: scaleX(1);
+        }
 
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
 
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--ink);
-      border-radius: 1px;
-      margin: 5px 0;
-    }
+        .icon-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 1px;
+            margin: 5px 0;
+            transition: .3s ease;
+        }
 
-    /* language dropdown */
-    .lang-dropdown {
-      position: relative;
-    }
+        /* HAMBURGER → CROSS ANIMATION */
+        .nav-toggle.active .icon-bar:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
 
-    .lang-btn {
-      background: #0f172a;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+        .nav-toggle.active .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
 
-    .lang-menu {
-      position: absolute;
-      top: 110%;
-      right: 0;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
-      display: none;
-      flex-direction: column;
-      min-width: 140px;
-      overflow: hidden;
-      z-index: 20;
-    }
+        .nav-toggle.active .icon-bar:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
 
-    .lang-dropdown:hover .lang-menu {
-      display: flex;
-    }
+        /* mobile dropdown animation */
+        .navlinks.active {
+            animation: slideDown .25s ease forwards;
+        }
 
-    .lang-menu button {
-      padding: 10px 14px;
-      font-size: 14px;
-      color: #1d3557;
-      background: white;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-    }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
 
-    .lang-menu button:hover {
-      background: #f0f4ff;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    @media (max-width: 820px) {
-      .navlinks {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, .98);
-        flex-direction: column;
-        align-items: center;
-        padding: 1.5rem 0;
-        gap: 1.25rem;
-        border-top: 1px solid var(--line);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
-      }
+        /* language dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
 
-      .navlinks.active {
-        display: flex;
-      }
+        .lang-btn {
+            background: #0f172a;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-      .nav-toggle {
-        display: block;
-      }
-    }
+        .lang-menu {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+            display: none;
+            flex-direction: column;
+            min-width: 140px;
+            overflow: hidden;
+            z-index: 20;
+        }
 
-    /* CONTACT LAYOUT */
-    main {
-      position: relative;
-      z-index: 1;
-    }
+        .lang-dropdown:hover .lang-menu {
+            display: flex;
+        }
 
-    .contact-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(4rem, 8vw, 6rem) 16px;
-    }
+        .lang-menu button {
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #1d3557;
+            background: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+        }
 
-    .contact-shell {
-      width: 100%;
-      max-width: 1100px;
-      background: rgba(249, 250, 251, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 32px;
-      padding: 32px;
-      border: 1px solid rgba(209, 213, 219, 0.7);
-    }
+        .lang-menu button:hover {
+            background: #f0f4ff;
+        }
 
-    .contact-intro h1 {
-      font-size: clamp(1.8rem, 2.1vw + 1rem, 2.4rem);
-      margin: 0 0 8px;
-      color: #0f172a;
-    }
+        @media (max-width: 820px) {
+            .navlinks {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, .98);
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0;
+                gap: 1.25rem;
+                border-top: 1px solid var(--line);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .05);
+            }
 
-    .contact-intro p {
-      margin: 0 0 16px;
-      font-size: 14px;
-      color: #4b5563;
-      max-width: 460px;
-    }
+            .navlinks.active {
+                display: flex;
+            }
 
-    .contact-tags {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
-      display: grid;
-      gap: 6px;
-      font-size: 14px;
-      color: #111827;
-    }
+            .nav-toggle {
+                display: block;
+            }
+        }
 
-    .contact-tags li span {
-      margin-right: 6px;
-    }
+        /* CONTACT LAYOUT */
+        main {
+            position: relative;
+            z-index: 1;
+        }
 
-    .contact-tags li span:first-child {
-      color: #2563eb;
-      text-shadow: 0 2px 5px rgba(37, 99, 235, 0.3);
-    }
+        .contact-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(4rem, 8vw, 6rem) 16px;
+        }
 
-    .contact-card {
-      background: #fefefe;
-      border-radius: 18px;
-      border: 1px solid #e5e7eb;
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+        .contact-shell {
+            display: grid;
+            align-items: stretch;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 32px;
+            width: 100%;
+            max-width: 1100px;
 
-    .contact-card h2 {
-      margin: 0 0 4px;
-      font-size: 18px;
-      color: #111827;
-    }
+            background: rgba(249, 250, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+            padding: 32px;
+            border: 1px solid rgba(209, 213, 219, 0.7);
+        }
 
-    .contact-card small {
-      color: #6b7280;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
+        .contact-intro h1 {
+            font-size: clamp(1.8rem, 2.1vw + 1rem, 2.4rem);
+            margin: 0 0 8px;
+            color: #0f172a;
+        }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+        .contact-intro p {
+            margin: 0 0 16px;
+            font-size: 14px;
+            color: #4b5563;
+            max-width: 460px;
+        }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
+        .contact-tags {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 0;
+            display: grid;
+            gap: 6px;
+            font-size: 14px;
+            color: #111827;
+        }
 
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 13px;
-    }
+        .contact-tags li span {
+            margin-right: 6px;
+        }
 
-    .form-field label {
-      font-weight: 500;
-      color: #374151;
-    }
+        .contact-tags li span:first-child {
+            color: #2563eb;
+            text-shadow: 0 2px 5px rgba(37, 99, 235, 0.3);
+        }
 
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      padding: 8px 10px;
-      font-size: 13px;
-      outline: none;
-      background: #f9fafb;
-      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
-    }
+        .contact-card {
+            background: #fefefe;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      border-color: #2563eb;
-      background: #ffffff;
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
-    }
+        .contact-card h2 {
+            margin: 0 0 4px;
+            font-size: 18px;
+            color: #111827;
+        }
 
-    .form-actions {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        .contact-card small {
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
 
-    .send-btn {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 18px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
-      color: #f9fafb;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    .send-btn:hover {
-      filter: brightness(1.03);
-    }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
 
-    .send-btn span.icon {
-      font-size: 16px;
-    }
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 13px;
+        }
 
-    .form-note {
-      font-size: 11px;
-      color: #6b7280;
-    }
+        .form-field label {
+            font-weight: 500;
+            color: #374151;
+        }
 
-    @media (max-width: 900px) {
-      .contact-shell {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 24px 18px;
-      }
-    }
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            padding: 8px 10px;
+            font-size: 13px;
+            outline: none;
+            background: #f9fafb;
+            transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+        }
 
-    @media (max-width: 640px) {
-      .form-row {
-        grid-template-columns: minmax(0, 1fr);
-      }
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+        }
 
-      .contact-card {
-        padding: 16px;
-      }
-    }
-  </style>
+        .form-actions {
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .send-btn {
+            border-radius: 999px;
+            border: none;
+            padding: 9px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: #f9fafb;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .send-btn:hover {
+            filter: brightness(1.03);
+        }
+
+        .send-btn span.icon {
+            font-size: 16px;
+        }
+
+        .form-note {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 900px) {
+            .contact-shell {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 24px 18px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .form-row {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .contact-card {
+                padding: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- moving network background -->
-  <div id="tsparticles"></div>
+    <!-- moving network background -->
+    <div id="tsparticles"></div>
 
-  <!-- NAVBAR -->
-  <nav class="nav" role="navigation" aria-label="Primary">
-    <div class="container nav__inner">
-      <a href="index.html" class="brand" aria-label="MEHErix Home">
-        <div class="brand__logo"></div>
-        <div>
-          <div style="font-size:1.1rem;">MEHErix</div>
-          <div class="muted" style="font-size:.8rem;font-weight:600;">Insight Shines Through</div>
+    <!-- NAVBAR -->
+    <nav class="nav" role="navigation" aria-label="Primary">
+        <div class="container nav__inner">
+            <a href="index.html" class="brand" aria-label="MEHErix Home">
+                <div class="brand__logo"></div>
+                <div>
+                    <div style="font-size:1.1rem;">MEHErix</div>
+                    <div class="muted" style="font-size:.8rem;font-weight:600;">Insight Shines Through</div>
+                </div>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <div class="navlinks">
+                <a href="index.html" data-translate-key="navHome">Home</a>
+                <a href="about.html" data-translate-key="navAbout">About</a>
+                <a href="index.html#services" data-translate-key="navServices">Services</a>
+                <a href="projects.html" data-translate-key="navProjects">Projects</a>
+
+                <div class="lang-dropdown">
+                    <button class="lang-btn" aria-label="Change language" title="Change language">🌐</button>
+                    <div class="lang-menu">
+                        <button type="button" class="lang-option" data-lang="en">English</button>
+                        <button type="button" class="lang-option" data-lang="fi">Suomi</button>
+                        <button type="button" class="lang-option" data-lang="sv">Svenska</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-      </button>
-      <div class="navlinks">
-        <a href="index.html" data-translate-key="navHome">Home</a>
-        <a href="about.html" data-translate-key="navAbout">About</a>
-        <a href="index.html#services" data-translate-key="navServices">Services</a>
-        <a href="projects.html" data-translate-key="navProjects">Projects</a>
+    </nav>
 
-        <div class="lang-dropdown">
-          <button class="lang-btn" aria-label="Change language" title="Change language">🌐</button>
-          <div class="lang-menu">
-            <button type="button" class="lang-option" data-lang="en">English</button>
-            <button type="button" class="lang-option" data-lang="fi">Suomi</button>
-            <button type="button" class="lang-option" data-lang="sv">Svenska</button>
-          </div>
+    <main>
+        <section class="contact-wrapper">
+            <div class="contact-shell">
+                <!-- LEFT SIDE: TEXT -->
+                <div class="contact-intro">
+                    <h1 data-translate-key="contactTitle">Let’s Talk About Your Next Data Project</h1>
+                    <p data-translate-key="contactSubhead">
+                        Tell us a bit about your use case and we’ll come back with ideas – not spam.
+                        We usually reply within one business day.
+                    </p>
+
+                    <ul class="contact-tags">
+                        <li>
+                            <span>✨</span>
+                            <span data-translate-key="tag1">AI &amp; data driven solutions for restaurants</span>
+                        </li>
+                        <li>
+                            <span>✨</span>
+                            <span data-translate-key="tag2">Food-waste &amp; demand forecasting for buffets</span>
+                        </li>
+                        <li>
+                            <span>✨</span>
+                            <span data-translate-key="tag3">Intelligent dashboards &amp; automation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT SIDE: FORM -->
+                <div class="contact-card">
+                    <h2 data-translate-key="formTitle">Contact MEHErix</h2>
+                    <small data-translate-key="formRequired">Fields marked * are required.</small>
+
+                    <form id="meherix-contact-form">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="name" data-translate-key="formName">Full name *</label>
+                                <input id="name" name="name" type="text" required />
+                            </div>
+                            <div class="form-field">
+                                <label for="email" data-translate-key="formEmail">Email *</label>
+                                <input id="email" name="email" type="email" required />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="company" data-translate-key="formCompany">Company / organization</label>
+                                <input id="company" name="company" type="text" />
+                            </div>
+                            <div class="form-field">
+                                <label for="role" data-translate-key="formRole">Your role</label>
+                                <input id="role" name="role" type="text" placeholder="e.g. Restaurant manager, CTO"
+                                    data-translate-key="formRolePlaceholder" />
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message" data-translate-key="formMessage">Tell us a bit more *</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Example: We run a buffet restaurant with ~150 guests per day and want to reduce food waste and get daily demand forecasts."
+                                data-translate-key="formMessagePlaceholder" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="budget" data-translate-key="formBudget">Approximate budget
+                                    (optional)</label>
+                                <select id="budget" name="budget">
+                                    <option value="" data-translate-key="formBudgetOption1">Select a range</option>
+                                    <option value="exploration" data-translate-key="formBudgetOption2">Just exploring /
+                                        not sure yet
+                                    </option>
+                                    <option value="5k-20k">€5k – €20k</option>
+                                    <option value="20k-50k">€20k – €50k</option>
+                                    <option value="50k-plus">€50k+</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="timeline" data-translate-key="formTimeline">Ideal timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="" data-translate-key="formTimelineOption1">Select</option>
+                                    <option value="asap" data-translate-key="formTimelineOption2">As soon as possible
+                                    </option>
+                                    <option value="3-6-months" data-translate-key="formTimelineOption3">Within 3–6
+                                        months</option>
+                                    <option value="6-12-months" data-translate-key="formTimelineOption4">Within 6–12
+                                        months</option>
+                                    <option value="more-than-12" data-translate-key="formTimelineOption5">More than 12
+                                        months</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="send-btn" type="submit">
+                                <span class="icon">📨</span>
+                                <span data-translate-key="formSend">Send message to MEHErix</span>
+                            </button>
+                            <div class="form-note" data-translate-key="formNote">
+                                Your message will open in your email app and be sent to
+                                <strong>info@meherix.com</strong>.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer-cta" id="contact-footer">
+        <style>
+            .site-footer {
+                background: linear-gradient(165deg, var(--ink) 0%, #0d1b2a 100%);
+                box-shadow: 0 -10px 40px rgba(29, 53, 87, .1);
+                border-top: 1px solid rgba(255, 255, 255, .1);
+
+                max-width: var(--maxw);
+                margin: 0 auto;
+                padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+                color: #fff;
+                border-radius: 22px 22px 0 0;
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.4fr 1fr 1fr 1fr;
+                gap: clamp(1rem, 2vw, 2rem);
+                align-items: start;
+            }
+
+            .footer-brand h4 {
+                margin: 0 0 .5rem;
+                font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
+                font-weight: 800;
+                letter-spacing: .2px;
+                color: #fff;
+            }
+
+            .footer-brand p {
+                margin: 0 0 1rem;
+                color: rgba(255, 255, 255, .75);
+            }
+
+            .footer-social {
+                display: flex;
+                gap: .6rem;
+            }
+
+            .footer-social a {
+                display: inline-grid;
+                place-items: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, .08);
+                border: 1px solid rgba(255, 255, 255, .12);
+                transition: transform .15s ease, background .2s ease, border-color .2s ease;
+                color: #fff;
+            }
+
+            .footer-social a:hover {
+                transform: translateY(-2px);
+                background: rgba(255, 255, 255, .14);
+                border-color: rgba(255, 255, 255, .22);
+            }
+
+            .footer-col h4 {
+                margin: 0 0 .75rem;
+                font-size: 1.05rem;
+                font-weight: 800;
+            }
+
+            .footer-col ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                gap: .5rem;
+            }
+
+            .footer-col a {
+                color: rgba(255, 255, 255, .85);
+                text-decoration: none;
+                transition: opacity .15s ease, transform .1s ease;
+            }
+
+            .footer-col a:hover {
+                opacity: 1;
+                text-decoration: underline;
+            }
+
+            .footer-sep {
+                margin: clamp(1.5rem, 3vw, 2rem) 0;
+                height: 1px;
+                border: 0;
+                background: linear-gradient(to right,
+                        rgba(255, 255, 255, .08),
+                        rgba(255, 255, 255, .25),
+                        rgba(255, 255, 255, .08));
+            }
+
+            .footer-bottom {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: .75rem 1rem;
+                justify-content: space-between;
+                color: rgba(255, 255, 255, .85);
+                font-size: .95rem;
+            }
+
+            .footer-bottom a {
+                color: rgba(255, 255, 255, .9);
+                text-decoration: none;
+            }
+
+            .footer-bottom a:hover {
+                text-decoration: underline;
+            }
+
+            @media (max-width: 900px) {
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+            @media (max-width: 560px) {
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: .5rem;
+                }
+            }
+        </style>
+
+        <div class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4 data-i18n="footer.heading">MEHErix – Insight Shines Through</h4>
+                    <p>
+                        <span data-i18n="footer.line1">AI &amp; Data Innovation Company</span><br>
+                        <span data-i18n="footer.address">Orvokkitie 3, O1300 Vantaa, Finland</span><br>
+                        <span data-i18n="footer.business">Business ID: 000000</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6 6 18M6 6l12 12"></path>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@meherix.fi" aria-label="Email">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-i18n="footer.links">Useful Links</h4>
+                    <ul>
+                        <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+                        <li><a href="projects.html" data-i18n="footer.projects">Projects</a></li>
+                        <li><a href="career.html" data-i18n="footer.careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>SaaS (B2C)</h4>
+                    <ul>
+                        <li><a href="https://ling-school.meherix.com/">Ling-School - AI-powered Personalized Tutoring
+                                Platform</a>
+                        </li>
+                        <li><a href="https://grocescan.meherix.com/">grocescan - Predict Freshness. Prevent Waste.</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>SaaS (B2B)</h4>
+                    <ul>
+                        <li><a href="https://mixx.meherix.com/">mixx - Food demand prediction</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-sep" />
+
+            <div class="footer-bottom">
+                <div>© <span id="y"></span> MEHErix Oy. <span data-i18n="footer.rights">All rights reserved</span></div>
+                <div>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+                    <span style="opacity:.6; padding:0 .6rem;">–</span>
+                    <a href="terms.html" data-i18n="footer.terms">Terms &amp; Conditions</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </footer>
 
-  <main>
-    <section class="contact-wrapper">
-      <div class="contact-shell">
-        <!-- LEFT SIDE: TEXT -->
-        <div class="contact-intro">
-          <h1 data-translate-key="contactTitle">Let’s Talk About Your Next Data Project</h1>
-          <p data-translate-key="contactSubhead">
-            Tell us a bit about your use case and we’ll come back with ideas – not spam.
-            We usually reply within one business day.
-          </p>
+    <!-- scripts: nav toggle + particles + contact mailto + i18n -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script>
+        // ====== TRANSLATIONS ======
+        const translations = {
+            en: {
+                navHome: "Home",
+                navAbout: "About",
+                navServices: "Services",
+                navProjects: "Projects",
+                contactTitle: "Let’s Talk About Your Next Data Project",
+                contactSubhead: "Tell us a bit about your use case and we’ll come back with ideas – not spam. We usually reply within one business day.",
+                tag1: "<span>✨</span>AI & data driven solutions for restaurants",
+                tag2: "<span>✨</span>Food-waste & demand forecasting for buffets",
+                tag3: "<span>✨</span>Intelligent dashboards & automation",
+                formTitle: "Contact MEHErix",
+                formRequired: "Fields marked * are required.",
+                formName: "Full name *",
+                formEmail: "Email *",
+                formCompany: "Company / organization",
+                formRole: "Your role",
+                formRolePlaceholder: "e.g. Restaurant manager, CTO",
+                formMessage: "Tell us a bit more *",
+                formMessagePlaceholder: "Example: We run a buffet restaurant with ~150 guests per day and want to reduce food waste and get daily demand forecasts.",
+                formBudget: "Approximate budget (optional)",
+                formBudgetOption1: "Select a range",
+                formBudgetOption2: "Just exploring / not sure yet",
+                formTimeline: "Ideal timeline",
+                formTimelineOption1: "Select",
+                formTimelineOption2: "As soon as possible",
+                formTimelineOption3: "Within 3–6 months",
+                formTimelineOption4: "Within 6–12 months",
+                formTimelineOption5: "More than 12 months",
+                formSend: "Send message to MEHErix",
+                formNote: "Your message will open in your email app and be sent to <strong>info@meherix.com</strong>."
+            },
+            fi: {
+                navHome: "Koti",
+                navAbout: "Tietoja",
+                navServices: "Palvelut",
+                navProjects: "Projektit",
+                contactTitle: "Keskustellaan seuraavasta dataprojektistasi",
+                contactSubhead: "Kerro meille hieman käyttökohteestasi, niin palaamme ideoilla – emme roskapostilla. Vastaamme yleensä yhden arkipäivän kuluessa.",
+                tag1: "<span>✨</span>Tekoäly- ja datalähtöiset ratkaisut ravintoloille",
+                tag2: "<span>✨</span>Ruokahävikin ja kysynnän ennustaminen noutopöydille",
+                tag3: "<span>✨</span>Älykkäät koontinäytöt ja automaatio",
+                formTitle: "Ota yhteyttä MEHErixiin",
+                formRequired: "Tähdellä merkityt kentät ovat pakollisia.",
+                formName: "Koko nimi *",
+                formEmail: "Sähköposti *",
+                formCompany: "Yritys / organisaatio",
+                formRole: "Roolisi",
+                formRolePlaceholder: "esim. Ravintolapäällikkö, teknologiajohtaja",
+                formMessage: "Kerro hieman lisää *",
+                formMessagePlaceholder: "Esimerkki: Meillä on noutopöytäravintola, jossa on noin 150 asiakasta päivässä, ja haluamme vähentää ruokahävikkiä ja saada päivittäisiä kysyntäennusteita.",
+                formBudget: "Arvioitu budjetti (valinnainen)",
+                formBudgetOption1: "Valitse vaihtoehto",
+                formBudgetOption2: "Vasta tutkimassa / en ole varma",
+                formTimeline: "Ihanteellinen aikataulu",
+                formTimelineOption1: "Valitse",
+                formTimelineOption2: "Mahdollisimman pian",
+                formTimelineOption3: "3–6 kuukauden kuluessa",
+                formTimelineOption4: "6–12 kuukauden kuluessa",
+                formTimelineOption5: "Yli 12 kuukautta",
+                formSend: "Lähetä viesti MEHErixille",
+                formNote: "Viestisi avautuu sähköpostisovelluksessasi ja lähetetään osoitteeseen <strong>info@meherix.com</strong>."
+            },
+            sv: {
+                navHome: "Hem",
+                navAbout: "Om oss",
+                navServices: "Tjänster",
+                navProjects: "Projekt",
+                contactTitle: "Låt oss prata om ditt nästa dataprojekt",
+                contactSubhead: "Berätta lite om ditt användningsfall så återkommer vi med idéer – inte skräppost. Vi svarar vanligtvis inom en arbetsdag.",
+                tag1: "<span>✨</span>AI- och datadrivna lösningar för restauranger",
+                tag2: "<span>✨</span>Prognoser för matsvinn och efterfrågan för bufféer",
+                tag3: "<span>✨</span>Intelligenta instrumentpaneler och automation",
+                formTitle: "Kontakta MEHErix",
+                formRequired: "Fält markerade med * är obligatoriska.",
+                formName: "Fullständigt namn *",
+                formEmail: "E-post *",
+                formCompany: "Företag / organisation",
+                formRole: "Din roll",
+                formRolePlaceholder: "t.ex. Restaurangchef, CTO",
+                formMessage: "Berätta lite mer *",
+                formMessagePlaceholder: "Exempel: Vi driver en bufférestaurang med ~150 gäster per dag och vill minska matsvinnet och få dagliga efterfrågeprognoser.",
+                formBudget: "Ungefärlig budget (valfritt)",
+                formBudgetOption1: "Välj ett intervall",
+                formBudgetOption2: "Bara utforskar / inte säker än",
+                formTimeline: "Idealisk tidslinje",
+                formTimelineOption1: "Välj",
+                formTimelineOption2: "Så snart som möjligt",
+                formTimelineOption3: "Inom 3–6 månader",
+                formTimelineOption4: "Inom 6–12 månader",
+                formTimelineOption5: "Mer än 12 månader",
+                formSend: "Skicka meddelande till MEHErix",
+                formNote: "Ditt meddelande öppnas i din e-postapp och skickas till <strong>info@meherix.com</strong>."
+            }
+        };
 
-          <ul class="contact-tags">
-            <li>
-              <span>✨</span>
-              <span data-translate-key="tag1">AI &amp; data driven solutions for restaurants</span>
-            </li>
-            <li>
-              <span>✨</span>
-              <span data-translate-key="tag2">Food-waste &amp; demand forecasting for buffets</span>
-            </li>
-            <li>
-              <span>✨</span>
-              <span data-translate-key="tag3">Intelligent dashboards &amp; automation</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- RIGHT SIDE: FORM -->
-        <div class="contact-card">
-          <h2 data-translate-key="formTitle">Contact MEHErix</h2>
-          <small data-translate-key="formRequired">Fields marked * are required.</small>
-
-          <form id="meherix-contact-form">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name" data-translate-key="formName">Full name *</label>
-                <input id="name" name="name" type="text" required />
-              </div>
-              <div class="form-field">
-                <label for="email" data-translate-key="formEmail">Email *</label>
-                <input id="email" name="email" type="email" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="company" data-translate-key="formCompany">Company / organization</label>
-                <input id="company" name="company" type="text" />
-              </div>
-              <div class="form-field">
-                <label for="role" data-translate-key="formRole">Your role</label>
-                <input id="role" name="role" type="text" placeholder="e.g. Restaurant manager, CTO"
-                  data-translate-key="formRolePlaceholder" />
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="message" data-translate-key="formMessage">Tell us a bit more *</label>
-              <textarea id="message" name="message" rows="4"
-                placeholder="Example: We run a buffet restaurant with ~150 guests per day and want to reduce food waste and get daily demand forecasts."
-                data-translate-key="formMessagePlaceholder" required></textarea>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="budget" data-translate-key="formBudget">Approximate budget (optional)</label>
-                <select id="budget" name="budget">
-                  <option value="" data-translate-key="formBudgetOption1">Select a range</option>
-                  <option value="exploration" data-translate-key="formBudgetOption2">Just exploring / not sure yet
-                  </option>
-                  <option value="5k-20k">€5k – €20k</option>
-                  <option value="20k-50k">€20k – €50k</option>
-                  <option value="50k-plus">€50k+</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="timeline" data-translate-key="formTimeline">Ideal timeline</label>
-                <select id="timeline" name="timeline">
-                  <option value="" data-translate-key="formTimelineOption1">Select</option>
-                  <option value="asap" data-translate-key="formTimelineOption2">As soon as possible</option>
-                  <option value="3-6-months" data-translate-key="formTimelineOption3">Within 3–6 months</option>
-                  <option value="6-12-months" data-translate-key="formTimelineOption4">Within 6–12 months</option>
-                  <option value="more-than-12" data-translate-key="formTimelineOption5">More than 12 months</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-actions">
-              <button class="send-btn" type="submit">
-                <span class="icon">📨</span>
-                <span data-translate-key="formSend">Send message to MEHErix</span>
-              </button>
-              <div class="form-note" data-translate-key="formNote">
-                Your message will open in your email app and be sent to
-                <strong>info@meherix.com</strong>.
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====== FOOTER ====== -->
-  <footer class="footer-cta" id="contact-footer">
-    <style>
-      .site-footer {
-        background: linear-gradient(165deg, var(--ink) 0%, #0d1b2a 100%);
-        box-shadow: 0 -10px 40px rgba(29, 53, 87, .1);
-        border-top: 1px solid rgba(255, 255, 255, .1);
-
-        max-width: var(--maxw);
-        margin: 0 auto;
-        padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
-        color: #fff;
-        border-radius: 22px 22px 0 0;
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr 1fr 1fr;
-        gap: clamp(1rem, 2vw, 2rem);
-        align-items: start;
-      }
-
-      .footer-brand h4 {
-        margin: 0 0 .5rem;
-        font-size: clamp(1.25rem, 1.1vw + 1rem, 1.6rem);
-        font-weight: 800;
-        letter-spacing: .2px;
-        color: #fff;
-      }
-
-      .footer-brand p {
-        margin: 0 0 1rem;
-        color: rgba(255, 255, 255, .75);
-      }
-
-      .footer-social {
-        display: flex;
-        gap: .6rem;
-      }
-
-      .footer-social a {
-        display: inline-grid;
-        place-items: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, .08);
-        border: 1px solid rgba(255, 255, 255, .12);
-        transition: transform .15s ease, background .2s ease, border-color .2s ease;
-        color: #fff;
-      }
-
-      .footer-social a:hover {
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, .14);
-        border-color: rgba(255, 255, 255, .22);
-      }
-
-      .footer-col h4 {
-        margin: 0 0 .75rem;
-        font-size: 1.05rem;
-        font-weight: 800;
-      }
-
-      .footer-col ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        gap: .5rem;
-      }
-
-      .footer-col a {
-        color: rgba(255, 255, 255, .85);
-        text-decoration: none;
-        transition: opacity .15s ease, transform .1s ease;
-      }
-
-      .footer-col a:hover {
-        opacity: 1;
-        text-decoration: underline;
-      }
-
-      .footer-sep {
-        margin: clamp(1.5rem, 3vw, 2rem) 0;
-        height: 1px;
-        border: 0;
-        background: linear-gradient(to right,
-            rgba(255, 255, 255, .08),
-            rgba(255, 255, 255, .25),
-            rgba(255, 255, 255, .08));
-      }
-
-      .footer-bottom {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: .75rem 1rem;
-        justify-content: space-between;
-        color: rgba(255, 255, 255, .85);
-        font-size: .95rem;
-      }
-
-      .footer-bottom a {
-        color: rgba(255, 255, 255, .9);
-        text-decoration: none;
-      }
-
-      .footer-bottom a:hover {
-        text-decoration: underline;
-      }
-
-      @media (max-width: 900px) {
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            document.documentElement.lang = lang;
         }
-      }
 
-      @media (max-width: 560px) {
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
+        // ====== NAV TOGGLE ======
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.navlinks');
 
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-          gap: .5rem;
-        }
-      }
-    </style>
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
 
-    <div class="site-footer">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4 data-i18n="footer.heading">MEHErix – Insight Shines Through</h4>
-          <p>
-            <span data-i18n="footer.line1">AI &amp; Data Innovation Company</span><br>
-            <span data-i18n="footer.address">Orvokkitie 3, O1300 Vantaa, Finland</span><br>
-            <span data-i18n="footer.business">Business ID: 000000</span>
-          </p>
-          <div class="footer-social">
-            <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18M6 6l12 12"></path>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="mailto:info@meherix.fi" aria-label="Email">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
+        // close menu when clicking a link (mobile UX)
+        document.querySelectorAll('.navlinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
 
-        <div class="footer-col">
-          <h4 data-i18n="footer.links">Useful Links</h4>
-          <ul>
-            <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
-            <li><a href="projects.html" data-i18n="footer.projects">Projects</a></li>
-            <li><a href="career.html" data-i18n="footer.careers">Careers</a></li>
-          </ul>
-        </div>
+        // ====== LANGUAGE DROPDOWN BEHAVIOUR ======
+        const langBtn = document.querySelector(".lang-btn");
+        const langMenu = document.querySelector(".lang-menu");
+        const langOptions = document.querySelectorAll(".lang-option");
 
-        <div class="footer-col">
-          <h4>SaaS (B2C)</h4>
-          <ul>
-            <li><a href="https://ling-school.meherix.com/">Ling-School - AI-powered Personalized Tutoring Platform</a></li>
-            <li><a href="https://grocescan.meherix.com/">grocescan - Predict Freshness. Prevent Waste.</a></li>
-          </ul>
-        </div>
+        langBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            langMenu.style.display = langMenu.style.display === "flex" ? "none" : "flex";
+        });
 
-        <div class="footer-col">
-          <h4>SaaS (B2B)</h4>
-          <ul>
-            <li><a href="https://mixx.meherix.com/">mixx - Food demand prediction</a></li>
-          </ul>
-        </div>
-      </div>
+        langOptions.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const lang = btn.getAttribute('data-lang');
+                changeLanguage(lang);
+                langMenu.style.display = "none";
+                localStorage.setItem('meherix-lang', lang);
+            });
+        });
 
-      <hr class="footer-sep" />
+        document.addEventListener("click", (e) => {
+            if (langMenu.style.display === "flex" && !langMenu.contains(e.target) && !langBtn.contains(e.target)) {
+                langMenu.style.display = "none";
+            }
+        });
 
-      <div class="footer-bottom">
-        <div>© <span id="y"></span> MEHErix Oy. <span data-i18n="footer.rights">All rights reserved</span></div>
-        <div>
-          <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <span style="opacity:.6; padding:0 .6rem;">–</span>
-          <a href="terms.html" data-i18n="footer.terms">Terms &amp; Conditions</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+        // restore saved language
+        const savedLang = localStorage.getItem('meherix-lang') || 'en';
+        changeLanguage(savedLang);
 
-  <!-- scripts: nav toggle + particles + contact mailto + i18n -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-  <script>
-    // ====== TRANSLATIONS ======
-    const translations = {
-      en: {
-        navHome: "Home",
-        navAbout: "About",
-        navServices: "Services",
-        navProjects: "Projects",
-        contactTitle: "Let’s Talk About Your Next Data Project",
-        contactSubhead: "Tell us a bit about your use case and we’ll come back with ideas – not spam. We usually reply within one business day.",
-        tag1: "<span>✨</span>AI & data driven solutions for restaurants",
-        tag2: "<span>✨</span>Food-waste & demand forecasting for buffets",
-        tag3: "<span>✨</span>Intelligent dashboards & automation",
-        formTitle: "Contact MEHErix",
-        formRequired: "Fields marked * are required.",
-        formName: "Full name *",
-        formEmail: "Email *",
-        formCompany: "Company / organization",
-        formRole: "Your role",
-        formRolePlaceholder: "e.g. Restaurant manager, CTO",
-        formMessage: "Tell us a bit more *",
-        formMessagePlaceholder: "Example: We run a buffet restaurant with ~150 guests per day and want to reduce food waste and get daily demand forecasts.",
-        formBudget: "Approximate budget (optional)",
-        formBudgetOption1: "Select a range",
-        formBudgetOption2: "Just exploring / not sure yet",
-        formTimeline: "Ideal timeline",
-        formTimelineOption1: "Select",
-        formTimelineOption2: "As soon as possible",
-        formTimelineOption3: "Within 3–6 months",
-        formTimelineOption4: "Within 6–12 months",
-        formTimelineOption5: "More than 12 months",
-        formSend: "Send message to MEHErix",
-        formNote: "Your message will open in your email app and be sent to <strong>info@meherix.com</strong>."
-      },
-      fi: {
-        navHome: "Koti",
-        navAbout: "Tietoja",
-        navServices: "Palvelut",
-        navProjects: "Projektit",
-        contactTitle: "Keskustellaan seuraavasta dataprojektistasi",
-        contactSubhead: "Kerro meille hieman käyttökohteestasi, niin palaamme ideoilla – emme roskapostilla. Vastaamme yleensä yhden arkipäivän kuluessa.",
-        tag1: "<span>✨</span>Tekoäly- ja datalähtöiset ratkaisut ravintoloille",
-        tag2: "<span>✨</span>Ruokahävikin ja kysynnän ennustaminen noutopöydille",
-        tag3: "<span>✨</span>Älykkäät koontinäytöt ja automaatio",
-        formTitle: "Ota yhteyttä MEHErixiin",
-        formRequired: "Tähdellä merkityt kentät ovat pakollisia.",
-        formName: "Koko nimi *",
-        formEmail: "Sähköposti *",
-        formCompany: "Yritys / organisaatio",
-        formRole: "Roolisi",
-        formRolePlaceholder: "esim. Ravintolapäällikkö, teknologiajohtaja",
-        formMessage: "Kerro hieman lisää *",
-        formMessagePlaceholder: "Esimerkki: Meillä on noutopöytäravintola, jossa on noin 150 asiakasta päivässä, ja haluamme vähentää ruokahävikkiä ja saada päivittäisiä kysyntäennusteita.",
-        formBudget: "Arvioitu budjetti (valinnainen)",
-        formBudgetOption1: "Valitse vaihtoehto",
-        formBudgetOption2: "Vasta tutkimassa / en ole varma",
-        formTimeline: "Ihanteellinen aikataulu",
-        formTimelineOption1: "Valitse",
-        formTimelineOption2: "Mahdollisimman pian",
-        formTimelineOption3: "3–6 kuukauden kuluessa",
-        formTimelineOption4: "6–12 kuukauden kuluessa",
-        formTimelineOption5: "Yli 12 kuukautta",
-        formSend: "Lähetä viesti MEHErixille",
-        formNote: "Viestisi avautuu sähköpostisovelluksessasi ja lähetetään osoitteeseen <strong>info@meherix.com</strong>."
-      },
-      sv: {
-        navHome: "Hem",
-        navAbout: "Om oss",
-        navServices: "Tjänster",
-        navProjects: "Projekt",
-        contactTitle: "Låt oss prata om ditt nästa dataprojekt",
-        contactSubhead: "Berätta lite om ditt användningsfall så återkommer vi med idéer – inte skräppost. Vi svarar vanligtvis inom en arbetsdag.",
-        tag1: "<span>✨</span>AI- och datadrivna lösningar för restauranger",
-        tag2: "<span>✨</span>Prognoser för matsvinn och efterfrågan för bufféer",
-        tag3: "<span>✨</span>Intelligenta instrumentpaneler och automation",
-        formTitle: "Kontakta MEHErix",
-        formRequired: "Fält markerade med * är obligatoriska.",
-        formName: "Fullständigt namn *",
-        formEmail: "E-post *",
-        formCompany: "Företag / organisation",
-        formRole: "Din roll",
-        formRolePlaceholder: "t.ex. Restaurangchef, CTO",
-        formMessage: "Berätta lite mer *",
-        formMessagePlaceholder: "Exempel: Vi driver en bufférestaurang med ~150 gäster per dag och vill minska matsvinnet och få dagliga efterfrågeprognoser.",
-        formBudget: "Ungefärlig budget (valfritt)",
-        formBudgetOption1: "Välj ett intervall",
-        formBudgetOption2: "Bara utforskar / inte säker än",
-        formTimeline: "Idealisk tidslinje",
-        formTimelineOption1: "Välj",
-        formTimelineOption2: "Så snart som möjligt",
-        formTimelineOption3: "Inom 3–6 månader",
-        formTimelineOption4: "Inom 6–12 månader",
-        formTimelineOption5: "Mer än 12 månader",
-        formSend: "Skicka meddelande till MEHErix",
-        formNote: "Ditt meddelande öppnas i din e-postapp och skickas till <strong>info@meherix.com</strong>."
-      }
-    };
+        // ====== PARTICLES BACKGROUND ======
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            background: { color: "#f8f9fa" },
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#1d3557" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                links: { enable: true, distance: 150, color: "#457b9d", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 1.5, direction: "none", out_mode: "out" }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+            },
+            detectRetina: true
+        });
 
-    function changeLanguage(lang) {
-      document.querySelectorAll('[data-translate-key]').forEach(el => {
-        const key = el.getAttribute('data-translate-key');
-        if (translations[lang] && translations[lang][key]) {
-          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-            el.placeholder = translations[lang][key];
-          } else {
-            el.innerHTML = translations[lang][key];
-          }
-        }
-      });
-      document.documentElement.lang = lang;
-    }
+        // footer year
+        (function () {
+            var n = document.getElementById('y');
+            if (n && !n.textContent) {
+                n.textContent = new Date().getFullYear();
+            }
+        })();
 
-    // ====== NAV TOGGLE ======
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.navlinks');
+        // contact form -> mailto
+        const form = document.getElementById("meherix-contact-form");
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-    });
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-    // ====== LANGUAGE DROPDOWN BEHAVIOUR ======
-    const langBtn = document.querySelector(".lang-btn");
-    const langMenu = document.querySelector(".lang-menu");
-    const langOptions = document.querySelectorAll(".lang-option");
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const company = document.getElementById("company").value.trim();
+            const role = document.getElementById("role").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const budget = document.getElementById("budget").value;
+            const timeline = document.getElementById("timeline").value;
 
-    langBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      langMenu.style.display = langMenu.style.display === "flex" ? "none" : "flex";
-    });
+            const subject = `New MEHErix contact from ${name || "website visitor"}`;
+            const bodyLines = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Company: ${company}`,
+                `Role: ${role}`,
+                `Budget: ${budget || "Not specified"}`,
+                `Timeline: ${timeline || "Not specified"}`,
+                "",
+                "Message:",
+                message,
+            ];
 
-    langOptions.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const lang = btn.getAttribute('data-lang');
-        changeLanguage(lang);
-        langMenu.style.display = "none";
-      });
-    });
+            const body = bodyLines.join("\n");
 
-    document.addEventListener("click", (e) => {
-      if (langMenu.style.display === "flex" && !langMenu.contains(e.target) && !langBtn.contains(e.target)) {
-        langMenu.style.display = "none";
-      }
-    });
+            const mailtoUrl =
+                "mailto:info@meherix.com" +
+                "?subject=" +
+                encodeURIComponent(subject) +
+                "&body=" +
+                encodeURIComponent(body);
 
-    // restore saved language
-    const savedLang = localStorage.getItem('meherix-lang') || 'en';
-    changeLanguage(savedLang);
-
-    // ====== PARTICLES BACKGROUND ======
-    tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      background: { color: "#f8f9fa" },
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#1d3557" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: false },
-        size: { value: 3, random: true },
-        links: { enable: true, distance: 150, color: "#457b9d", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 1.5, direction: "none", out_mode: "out" }
-      },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-        modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
-      },
-      detectRetina: true
-    });
-
-    // footer year
-    (function () {
-      var n = document.getElementById('y');
-      if (n && !n.textContent) {
-        n.textContent = new Date().getFullYear();
-      }
-    })();
-
-    // contact form -> mailto
-    const form = document.getElementById("meherix-contact-form");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const company = document.getElementById("company").value.trim();
-      const role = document.getElementById("role").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const budget = document.getElementById("budget").value;
-      const timeline = document.getElementById("timeline").value;
-
-      const subject = `New MEHErix contact from ${name || "website visitor"}`;
-      const bodyLines = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Company: ${company}`,
-        `Role: ${role}`,
-        `Budget: ${budget || "Not specified"}`,
-        `Timeline: ${timeline || "Not specified"}`,
-        "",
-        "Message:",
-        message,
-      ];
-
-      const body = bodyLines.join("\n");
-
-      const mailtoUrl =
-        "mailto:info@meherix.com" +
-        "?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
-
-      window.location.href = mailtoUrl;
-    });
-  </script>
+            window.location.href = mailtoUrl;
+        });
+    </script>
 </body>
-
 
 </html>
