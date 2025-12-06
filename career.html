@@ -2,1262 +2,1362 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MEHErix — Insight Shines Through</title>
-  <link rel="icon" href="logo2.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      /* Light theme variables from index.html */
-      --bg: #ffffff;
-      --light: #f8f9fa;
-      --ink: #1d3557;
-      --text: #457b9d;
-      --muted: #6c757d;
-      --card: #ffffff;
-      --brand: #0077b6;
-      --line: #dee2e6;
-      --shadow: 0 8px 24px rgba(29, 53, 87, .08);
-      --radius: 16px;
-
-      /* Preserved/Adapted for Careers page */
-      --purple: #8B5CF6;
-      --purple-soft: rgba(139, 92, 246, .12);
-    }
-
-    * {
-      box-sizing: border-box
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
-      color: var(--text);
-      background: var(--bg);
-      /* Subtle gradient background like index.html */
-      background-image:
-        radial-gradient(circle at 100% 0%, rgba(0, 119, 182, 0.08), transparent 40%),
-        radial-gradient(circle at 0% 100%, rgba(29, 53, 87, 0.08), transparent 40%);
-      background-attachment: fixed;
-    }
-
-    a {
-      color: var(--brand);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    a:hover {
-      color: var(--ink);
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block
-    }
-
-    .wrap {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 22px
-    }
-
-    /* Header */
-    .mini-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: saturate(140%) blur(6px);
-      background: rgba(255, 255, 255, .85);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 12px 22px
-    }
-
-    .nav .spacer {
-      flex: 1
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--ink);
-      font-weight: 700;
-      letter-spacing: .3px;
-      text-decoration: none;
-    }
-
-    .brand__logo {
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      background-image: url('logo2.png');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
-      transition: .3s ease;
-    }
-
-    .brand:hover .brand__logo {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
-    }
-
-    .pill {
-      padding: 8px 14px;
-      border-radius: 99px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      transition: all .2s
-    }
-
-    .pill:hover {
-      background: var(--light);
-      color: var(--ink)
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
-      border-radius: 99px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all .2s
-    }
-
-    .btn.primary {
-      background: var(--ink);
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(29, 53, 87, .2);
-    }
-
-    .btn.primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(29, 53, 87, .25);
-    }
-
-    .btn.ghost {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--line);
-    }
-
-    .btn.ghost:hover {
-      background: var(--light);
-      border-color: var(--muted);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 80px 0 60px;
-      position: relative;
-      overflow: hidden
-    }
-
-    .grid-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center
-    }
-
-    @media (max-width:800px) {
-      .grid-hero {
-        grid-template-columns: 1fr;
-        text-align: center
-      }
-
-      .grid-hero img {
-        margin: 0 auto
-      }
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: var(--purple-soft);
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      margin-bottom: 16px
-    }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.1;
-      margin: 0 0 18px;
-      letter-spacing: -.02em;
-      color: var(--ink);
-    }
-
-    .lead {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--text);
-      margin: 0 0 28px;
-      max-width: 480px
-    }
-
-    .hero img {
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      transform: rotate(2deg);
-      border: 1px solid var(--line);
-    }
-
-    /* Filters */
-    .filters {
-      background: var(--card);
-      border: 1px solid var(--line);
-      padding: 20px;
-      border-radius: var(--radius);
-      margin-bottom: 32px;
-      box-shadow: var(--shadow);
-    }
-
-    .filter-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap
-    }
-
-    .filter-row>div {
-      flex: 1;
-      min-width: 140px
-    }
-
-    label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--muted);
-      text-transform: uppercase
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: var(--light);
-      color: var(--ink);
-      font-size: 14px;
-      outline: 0;
-      transition: border-color .2s
-    }
-
-    input:focus,
-    select:focus {
-      border-color: var(--brand);
-      background: #fff;
-    }
-
-    /* Roles List */
-    .roles {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: transform .22s ease, box-shadow .22s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    .card-head {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 10px
-    }
-
-    .role-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-      color: var(--ink);
-    }
-
-    .meta {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px
-    }
-
-    .chip {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--light);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .drawer {
-      display: none;
-      margin-top: 12px;
-      border-top: 1px dashed var(--line);
-      padding-top: 12px
-    }
-
-    .drawer.open {
-      display: block
-    }
-
-    .small {
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap
-    }
-
-    .row .btn {
-      padding: 10px 14px
-    }
-
-    /* Sections */
-    .section {
-      padding: 52px 0
-    }
-
-    h2.section-title {
-      font-size: 28px;
-      margin: 0 0 8px;
-      font-weight: 800;
-      color: var(--ink);
-    }
-
-    p.mute {
-      color: var(--muted);
-      margin: 6px 0 0
-    }
-
-    .grid-3 {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(3, 1fr)
-    }
-
-    @media (max-width:980px) {
-      .grid-3 {
-        grid-template-columns: 1fr
-      }
-    }
-
-    .benefit,
-    .value {
-      background: var(--light);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      min-height: 120px
-    }
-
-    .benefit h3,
-    .value h3 {
-      margin: 0 0 6px;
-      font-size: 18px;
-      color: var(--ink);
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 20px
-    }
-
-    .timeline:before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: var(--line);
-    }
-
-    .t-item {
-      position: relative;
-      padding: 12px 0 12px 16px
-    }
-
-    .t-item:before {
-      content: "";
-      position: absolute;
-      left: -2px;
-      top: 16px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--purple);
-      box-shadow: 0 0 0 3px #fff;
-      border: 2px solid var(--purple);
-    }
-
-    .t-item h4 {
-      margin: 0 0 4px;
-      color: var(--ink);
-    }
-
-    /* FAQ */
-    details {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: var(--text);
-    }
-
-    details+details {
-      margin-top: 10px
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg, var(--light), #fff);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    @media (max-width:760px) {
-      .cta {
-        grid-template-columns: 1fr
-      }
-    }
-
-    /* Reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: all .5s ease
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none
-    }
-
-    #tsparticles {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-    }
-
-    /* ---------- Footer (card style with side gaps) ---------- */
-
-    footer {
-      padding: 0 22px 40px;
-      /* side gap & bottom space */
-    }
-
-    .site-footer {
-      background: #0b1120;
-      color: #94a3b8;
-      padding: 3rem 0 2rem;
-      font-size: 0.95rem;
-      max-width: 1160px;
-      margin: 0 auto;
-      border-radius: 32px;
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2rem;
-      padding: 0 48px;
-    }
-
-    .footer-brand h4 {
-      color: #f8fafc;
-      font-size: 1.1rem;
-      margin: 0 0 1rem;
-      font-weight: 700;
-    }
-
-    .footer-brand p {
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: .6rem;
-    }
-
-    .footer-social a {
-      display: inline-grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .12);
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-      color: #fff;
-    }
-
-    .footer-social a:hover {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, .14);
-      border-color: rgba(255, 255, 255, .22);
-    }
-
-    .footer-col h4 {
-      margin: 0 0 .75rem;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #f8fafc;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: .5rem;
-    }
-
-    .footer-col a {
-      color: rgba(255, 255, 255, .65);
-      text-decoration: none;
-      transition: opacity .15s ease, transform .1s ease;
-    }
-
-    .footer-col a:hover {
-      opacity: 1;
-      text-decoration: underline;
-      color: #fff;
-    }
-
-    .footer-sep {
-      margin: clamp(1.5rem, 3vw, 2rem) 0;
-      height: 1px;
-      border: 0;
-      background: linear-gradient(to right, rgba(255, 255, 255, .08), rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
-    }
-
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .75rem 1rem;
-      justify-content: space-between;
-      color: rgba(255, 255, 255, .5);
-      font-size: .9rem;
-      padding: 0 48px;
-    }
-
-    .footer-bottom a {
-      color: rgba(255, 255, 255, .6);
-      text-decoration: none;
-    }
-
-    .footer-bottom a:hover {
-      text-decoration: underline;
-      color: #fff;
-    }
-
-    @media (max-width: 900px) {
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        padding: 0 28px;
-      }
-
-      .footer-bottom {
-        padding: 0 28px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      footer {
-        padding: 0 16px 32px;
-      }
-
-      .site-footer {
-        border-radius: 24px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: .5rem;
-        padding: 0 20px;
-      }
-    }
-
-    /* Mobile Nav Toggle */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      color: var(--ink);
-    }
-
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 20px;
-        gap: 16px;
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav {
-        justify-content: space-between;
-      }
-
-      .nav .spacer {
-        display: none;
-      }
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MEHErix — Insight Shines Through</title>
+    <link rel="icon" href="logo2.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light theme variables from index.html */
+            --bg: #ffffff;
+            --light: #f8f9fa;
+            --ink: #1d3557;
+            --text: #457b9d;
+            --muted: #6c757d;
+            --card: #ffffff;
+            --brand: #0077b6;
+            --line: #dee2e6;
+            --shadow: 0 8px 24px rgba(29, 53, 87, .08);
+            --radius: 16px;
+
+            /* Preserved/Adapted for Careers page */
+            --purple: #8B5CF6;
+            --purple-soft: rgba(139, 92, 246, .12);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+            color: var(--text);
+            background: var(--bg);
+            /* Subtle gradient background like index.html */
+            background-image:
+                radial-gradient(circle at 100% 0%, rgba(0, 119, 182, 0.08), transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(29, 53, 87, 0.08), transparent 40%);
+            background-attachment: fixed;
+        }
+
+        a {
+            color: var(--brand);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        a:hover {
+            color: var(--ink);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block
+        }
+
+        .wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 22px
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* Header */
+        .mini-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: saturate(140%) blur(6px);
+            background: rgba(255, 255, 255, .85);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 22px
+        }
+
+        .nav .spacer {
+            flex: 1
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--ink);
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-decoration: none;
+        }
+
+        .brand__logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background-image: url('logo2.png');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
+            transition: .3s ease;
+            flex-shrink: 0;
+        }
+
+        .brand:hover .brand__logo {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
+        }
+
+        .pill {
+            padding: 8px 14px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            transition: all .2s
+        }
+
+        .pill:hover {
+            background: var(--light);
+            color: var(--ink)
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all .2s;
+            border: none;
+        }
+
+        .btn.primary {
+            background: var(--ink);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(29, 53, 87, .2);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(29, 53, 87, .25);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--line);
+        }
+
+        .btn.ghost:hover {
+            background: var(--light);
+            border-color: var(--muted);
+        }
+
+        /* Desktop nav links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .grid-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: var(--purple-soft);
+            color: var(--purple);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 16px
+        }
+
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.1;
+            margin: 0 0 18px;
+            letter-spacing: -.02em;
+            color: var(--ink);
+        }
+
+        .lead {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0 0 28px;
+            max-width: 480px
+        }
+
+        .hero img {
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
+            border: 1px solid var(--line);
+        }
+
+        /* Filters */
+        .filters {
+            background: var(--card);
+            border: 1px solid var(--line);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .filter-row>div {
+            flex: 1;
+            min-width: 140px
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--muted);
+            text-transform: uppercase
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: var(--light);
+            color: var(--ink);
+            font-size: 14px;
+            outline: 0;
+            transition: border-color .2s
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--brand);
+            background: #fff;
+        }
+
+        /* Roles List */
+        .roles {
+            display: grid;
+            gap: 14px;
+            margin-top: 16px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-head {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px
+        }
+
+        .role-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--light);
+            border: 1px solid var(--line);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .drawer {
+            display: none;
+            margin-top: 12px;
+            border-top: 1px dashed var(--line);
+            padding-top: 12px
+        }
+
+        .drawer.open {
+            display: block
+        }
+
+        .small {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .row .btn {
+            padding: 10px 14px
+        }
+
+        /* Sections */
+        .section {
+            padding: 52px 0
+        }
+
+        h2.section-title {
+            font-size: 28px;
+            margin: 0 0 8px;
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        p.mute {
+            color: var(--muted);
+            margin: 6px 0 0
+        }
+
+        .grid-3 {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .benefit,
+        .value {
+            background: var(--light);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px;
+            min-height: 120px
+        }
+
+        .benefit h3,
+        .value h3 {
+            margin: 0 0 6px;
+            font-size: 18px;
+            color: var(--ink);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: var(--line);
+        }
+
+        .t-item {
+            position: relative;
+            padding: 12px 0 12px 16px
+        }
+
+        .t-item:before {
+            content: "";
+            position: absolute;
+            left: -2px;
+            top: 16px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 0 3px #fff;
+            border: 2px solid var(--purple);
+        }
+
+        .t-item h4 {
+            margin: 0 0 4px;
+            color: var(--ink);
+        }
+
+        /* FAQ */
+        details {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: var(--text);
+        }
+
+        details+details {
+            margin-top: 10px
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--light), #fff);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 22px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 14px;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        /* Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all .5s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none
+        }
+
+        #tsparticles {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        /* ---------- Footer (card style with side gaps) ---------- */
+
+        footer {
+            padding: 0 22px 40px;
+            /* side gap & bottom space */
+        }
+
+        .site-footer {
+            background: #0b1120;
+            color: #94a3b8;
+            padding: 3rem 0 2rem;
+            font-size: 0.95rem;
+            max-width: 1160px;
+            margin: 0 auto;
+            border-radius: 32px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            padding: 0 48px;
+        }
+
+        .footer-brand h4 {
+            color: #f8fafc;
+            font-size: 1.1rem;
+            margin: 0 0 1rem;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: .6rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            display: inline-grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            transition: transform .15s ease, background .2s ease, border-color .2s ease;
+            color: #fff;
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, .14);
+            border-color: rgba(255, 255, 255, .22);
+        }
+
+        .footer-col h4 {
+            margin: 0 0 .75rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #f8fafc;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: .5rem;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            transition: opacity .15s ease, transform .1s ease;
+            word-break: break-word;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .footer-sep {
+            margin: clamp(1.5rem, 3vw, 2rem) 0;
+            height: 1px;
+            border: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, .08), rgba(255, 255, 255, .25), rgba(255, 255, 255, .08));
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: .75rem 1rem;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, .5);
+            font-size: .9rem;
+            padding: 0 48px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, .6);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--ink);
+        }
+
+        /* ---------- Responsive tweaks ---------- */
+
+        @media (max-width: 1024px) {
+            .grid-hero {
+                gap: 28px;
+            }
+
+            .lead {
+                max-width: none;
+            }
+
+            .wrap {
+                padding: 0 18px;
+            }
+
+            footer {
+                padding: 0 18px 36px;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 16px 20px 20px;
+                gap: 16px;
+                border-bottom: 1px solid var(--line);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav {
+                justify-content: space-between;
+                padding-inline: 18px;
+            }
+
+            .nav .spacer {
+                display: none;
+            }
+
+            .hero {
+                padding: 64px 0 40px;
+            }
+
+            .grid-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .grid-hero img {
+                margin: 0 auto;
+            }
+
+            .lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero .btn+.btn {
+                margin-top: 10px;
+            }
+
+            .filters {
+                padding: 16px;
+            }
+
+            .card-head {
+                grid-template-columns: 1fr;
+                align-items: flex-start;
+            }
+
+            .card-head .row {
+                justify-content: flex-start;
+            }
+
+            .cta {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                padding: 0 28px;
+            }
+
+            .footer-bottom {
+                padding: 0 28px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                font-size: 15px;
+            }
+
+            footer {
+                padding: 0 16px 32px;
+            }
+
+            .site-footer {
+                border-radius: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: .5rem;
+                padding: 0 20px;
+            }
+
+            .filter-row {
+                flex-direction: column;
+            }
+
+            .filter-row>div {
+                width: 100%;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            h1 {
+                font-size: clamp(26px, 8vw, 32px);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .nav {
+                padding-inline: 14px;
+            }
+
+            .wrap {
+                padding: 0 14px;
+            }
+
+            footer {
+                padding: 0 14px 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div id="tsparticles"></div>
+    <div id="tsparticles"></div>
 
-  <header class="mini-header" aria-label="Secondary navigation">
-    <nav class="nav wrap">
-      <a href="index.html" class="brand" aria-label="MEHErix Home">
-        <div class="brand__logo"></div>
-        <div>
-          <div style="font-size:1.1rem;">MEHErix</div>
-          <div class="muted" style="font-size:.8rem;font-weight:600;">Insight Shines Through</div>
-        </div>
-      </a>
-      <div class="spacer"></div>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <div class="nav-links">
-        <a class="pill" href="#open-roles">Open roles</a>
-        <a class="pill" href="#benefits">Benefits</a>
-        <a class="pill" href="#culture">Culture</a>
-        <a class="pill" href="#faq">FAQ</a>
-        <a class="btn primary" href="mailto:careers@meherix.com?subject=Open%20application">Open application</a>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="wrap grid-hero">
-      <div class="reveal">
-        <span class="tag">Join the Team</span>
-        <h1>Build ethical AI that reduces waste and powers smarter decisions.</h1>
-        <p class="lead">We’re a Finland-based AI & Data company. Small team, big impact. Ownership, autonomy,
-          and a product you can be proud of.</p>
-        <a class="btn primary" href="#open-roles">See open roles</a>
-        <a class="btn ghost" href="mailto:careers@meherix.com?subject=Open%20application">Send open
-          application</a>
-      </div>
-      <div class="reveal">
-        <img alt="Team at work"
-          src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop">
-      </div>
-    </div>
-  </section>
-
-  <section id="open-roles" class="section">
-    <div class="wrap">
-      <h2 class="section-title">Open roles ...[N.B. The hiring process is currently unavailable.]</h2>
-      <p class="mute" style="margin-bottom: 2rem;">Search and filter. We hire for talent and potential — if you
-        don’t tick every box, apply
-        anyway.</p>
-
-      <!-- Filters -->
-      <div class="filters reveal" role="region" aria-label="Job filters">
-        <div class="filter-row">
-          <div>
-            <label for="q">Search</label>
-            <input id="q" type="search" placeholder="Search roles, e.g., data, dashboard, Python">
-          </div>
-          <div>
-            <label for="team">Team</label>
-            <select id="team">
-              <option value="">All teams</option>
-              <option>Data Science</option>
-              <option>Engineering</option>
-              <option>Product</option>
-              <option>Design</option>
-              <option>Business</option>
-            </select>
-          </div>
-          <div>
-            <label for="loc">Location</label>
-            <select id="loc">
-              <option value="">Any</option>
-              <option>Helsinki (Hybrid)</option>
-              <option>Vantaa (On-site)</option>
-              <option>Remote (EU)</option>
-            </select>
-          </div>
-          <div>
-            <label for="type">Type</label>
-            <select id="type">
-              <option value="">Any</option>
-              <option>Full-time</option>
-              <option>Internship</option>
-              <option>Part-time</option>
-              <option>Thesis</option>
-            </select>
-          </div>
-          <div>
-            <label for="sort">Sort</label>
-            <select id="sort">
-              <option value="new">Newest</option>
-              <option value="az">A → Z</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- Roles -->
-      <div id="roles" class="roles"></div>
-    </div>
-  </section>
-
-  <section id="benefits" class="section">
-    <div class="wrap">
-      <h2 class="section-title">Benefits</h2>
-      <p class="mute">Support to do your best work — and a life outside of it.</p>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="benefit reveal">
-          <h3>Flexible & Remote</h3>
-          <p>Hybrid in Helsinki/Vantaa or remote in EU timezones. Async-first culture.</p>
-        </div>
-        <div class="benefit reveal">
-          <h3>Learning Budget</h3>
-          <p>Courses, books, certifications — level up in Data Science, Data Engineering, and AI.</p>
-        </div>
-        <div class="benefit reveal">
-          <h3>Impact & Ownership</h3>
-          <p>Shipped work touches real kitchens, reduces waste, and saves costs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="culture" class="section">
-    <div class="wrap">
-      <h2 class="section-title">Culture & Values</h2>
-      <p class="mute">Simple rules, high standards, kind people.</p>
-      <div class="grid-3" style="margin-top:12px">
-        <div class="value reveal">
-          <h3>Clarity</h3>
-          <p>We write and share decisions. Clear docs, clear dashboards.</p>
-        </div>
-        <div class="value reveal">
-          <h3>Impact</h3>
-          <p>Focus on outcomes that matter to customers and the planet.</p>
-        </div>
-        <div class="value reveal">
-          <h3>Integrity</h3>
-          <p>We build responsibly. Privacy by design, ethics at the core.</p>
-        </div>
-      </div>
-
-      <div class="timeline" style="margin-top:22px">
-        <div class="t-item reveal">
-          <h4>Week 1</h4>
-          <p>Meet the team, ship your first small improvement.</p>
-        </div>
-        <div class="t-item reveal">
-          <h4>Month 1</h4>
-          <p>Own a feature end-to-end — from data to intelligent dashboard.</p>
-        </div>
-        <div class="t-item reveal">
-          <h4>Quarter 1</h4>
-          <p>Lead an initiative that reduces waste at a pilot restaurant.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="section">
-    <div class="wrap">
-      <h2 class="section-title">FAQ</h2>
-      <div class="reveal">
-        <details>
-          <summary>Do you sponsor visas?</summary>
-          <p>For select roles we can consider EU relocation; remote within the EU is common.</p>
-        </details>
-        <details>
-          <summary>What’s the interview process?</summary>
-          <p>Short intro → practical task → portfolio/code review → meet the team → offer.</p>
-        </details>
-        <details>
-          <summary>Can I apply for multiple roles?</summary>
-          <p>Yes. Or send an open application — we match people to problems.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap cta reveal">
-      <div>
-        <h2 class="section-title" style="margin:0 0 6px">Don’t see your role?</h2>
-        <p class="mute" style="margin:0">Tell us what you’d like to build. We read every
-          application.</p>
-      </div>
-      <div class="row">
-        <a class="btn ghost" href="mailto:careers@meherix.com?subject=Open%20application">careers@meherix.com</a>
-        <a class="btn primary" href="mailto:careers@meherix.com?subject=Application%3A%20Role%20at%20MEHErix">Apply
-          now</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="site-footer">
-      <div class="footer-grid">
-        <!-- Brand & Social -->
-        <div class="footer-brand">
-          <h4>MEHErix – Insight Shines Through</h4>
-          <p>AI &amp; Data Innovation Company<br>Orvokkitie 3, O1300 Vantaa, Finland<br>Business
-            ID:
-            000000
-          </p>
-          <div class="footer-social">
-            <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
-                </path>
-              </svg>
+    <header class="mini-header" aria-label="Secondary navigation">
+        <nav class="nav wrap">
+            <a href="index.html" class="brand" aria-label="MEHErix Home">
+                <div class="brand__logo"></div>
+                <div>
+                    <div style="font-size:1.1rem;">MEHErix</div>
+                    <div class="muted" style="font-size:.8rem;font-weight:600;">Insight Shines Through</div>
+                </div>
             </a>
-            <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18M6 6l12 12"></path>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                </path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="mailto:info@meherix.fi" aria-label="Email">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                </path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
+            <div class="spacer"></div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links">
+                <a class="pill" href="#open-roles">Open roles</a>
+                <a class="pill" href="#benefits">Benefits</a>
+                <a class="pill" href="#culture">Culture</a>
+                <a class="pill" href="#faq">FAQ</a>
+                <a class="btn primary" href="mailto:careers@meherix.com?subject=Open%20application">Open application</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="wrap grid-hero">
+            <div class="reveal">
+                <span class="tag">Join the Team</span>
+                <h1>Build ethical AI that reduces waste and powers smarter decisions.</h1>
+                <p class="lead">We’re a Finland-based AI & Data company. Small team, big impact. Ownership, autonomy,
+                    and a product you can be proud of.</p>
+                <a class="btn primary" href="#open-roles">See open roles</a>
+                <a class="btn ghost" href="mailto:careers@meherix.com?subject=Open%20application">Send open
+                    application</a>
+            </div>
+            <div class="reveal">
+                <img alt="Team at work"
+                    src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop">
+            </div>
         </div>
+    </section>
 
-        <!-- Useful Links -->
-        <div class="footer-col">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="career.html">Careers</a></li>
-          </ul>
+    <section id="open-roles" class="section">
+        <div class="wrap">
+            <h2 class="section-title">Open roles ...[N.B. The hiring process is currently unavailable.]</h2>
+            <p class="mute" style="margin-bottom: 2rem;">Search and filter. We hire for talent and potential — if you
+                don’t tick every box, apply
+                anyway.</p>
+
+            <!-- Filters -->
+            <div class="filters reveal" role="region" aria-label="Job filters">
+                <div class="filter-row">
+                    <div>
+                        <label for="q">Search</label>
+                        <input id="q" type="search" placeholder="Search roles, e.g., data, dashboard, Python">
+                    </div>
+                    <div>
+                        <label for="team">Team</label>
+                        <select id="team">
+                            <option value="">All teams</option>
+                            <option>Data Science</option>
+                            <option>Engineering</option>
+                            <option>Product</option>
+                            <option>Design</option>
+                            <option>Business</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="loc">Location</label>
+                        <select id="loc">
+                            <option value="">Any</option>
+                            <option>Helsinki (Hybrid)</option>
+                            <option>Vantaa (On-site)</option>
+                            <option>Remote (EU)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="type">Type</label>
+                        <select id="type">
+                            <option value="">Any</option>
+                            <option>Full-time</option>
+                            <option>Internship</option>
+                            <option>Part-time</option>
+                            <option>Thesis</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sort">Sort</label>
+                        <select id="sort">
+                            <option value="new">Newest</option>
+                            <option value="az">A → Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roles -->
+            <div id="roles" class="roles"></div>
         </div>
+    </section>
 
-        <!-- SaaS -->
-        <div class="footer-col">
-          <h4>SaaS (B2C)</h4>
-          <ul>
-            <li><a href="https://ling-school.meherix.com/">Ling-School - AI-powered personalized tutoring platform</a></li>
-            <li><a href="https://grocescan.meherix.com/">grocescan-Predict Freshness. Prevent Waste.</a></li>
-          </ul>
+    <section id="benefits" class="section">
+        <div class="wrap">
+            <h2 class="section-title">Benefits</h2>
+            <p class="mute">Support to do your best work — and a life outside of it.</p>
+            <div class="grid-3" style="margin-top:12px">
+                <div class="benefit reveal">
+                    <h3>Flexible & Remote</h3>
+                    <p>Hybrid in Helsinki/Vantaa or remote in EU timezones. Async-first culture.</p>
+                </div>
+                <div class="benefit reveal">
+                    <h3>Learning Budget</h3>
+                    <p>Courses, books, certifications — level up in Data Science, Data Engineering, and AI.</p>
+                </div>
+                <div class="benefit reveal">
+                    <h3>Impact & Ownership</h3>
+                    <p>Shipped work touches real kitchens, reduces waste, and saves costs.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- PaaS -->
-        <div class="footer-col">
-          <h4>SaaS (B2B)</h4>
-          <ul>
-            <li><a href="https://mixx.meherix.com/">mixx - Kitchen Intelligent Dashboard</a></li>
-          </ul>
+    <section id="culture" class="section">
+        <div class="wrap">
+            <h2 class="section-title">Culture & Values</h2>
+            <p class="mute">Simple rules, high standards, kind people.</p>
+            <div class="grid-3" style="margin-top:12px">
+                <div class="value reveal">
+                    <h3>Clarity</h3>
+                    <p>We write and share decisions. Clear docs, clear dashboards.</p>
+                </div>
+                <div class="value reveal">
+                    <h3>Impact</h3>
+                    <p>Focus on outcomes that matter to customers and the planet.</p>
+                </div>
+                <div class="value reveal">
+                    <h3>Integrity</h3>
+                    <p>We build responsibly. Privacy by design, ethics at the core.</p>
+                </div>
+            </div>
+
+            <div class="timeline" style="margin-top:22px">
+                <div class="t-item reveal">
+                    <h4>Week 1</h4>
+                    <p>Meet the team, ship your first small improvement.</p>
+                </div>
+                <div class="t-item reveal">
+                    <h4>Month 1</h4>
+                    <p>Own a feature end-to-end — from data to intelligent dashboard.</p>
+                </div>
+                <div class="t-item reveal">
+                    <h4>Quarter 1</h4>
+                    <p>Lead an initiative that reduces waste at a pilot restaurant.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <hr class="footer-sep" />
-      <div class="footer-bottom">
-        <div>© <span id="y"></span> MEHErix Oy. All rights reserved</div>
-        <div>
-          <a href="privacy.html">Privacy Policy</a>
-          <span style="opacity:.6; padding:0 .6rem;">–</span>
-          <a href="terms.html">Terms &amp; Conditions</a>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="wrap">
+            <h2 class="section-title">FAQ</h2>
+            <div class="reveal">
+                <details>
+                    <summary>Do you sponsor visas?</summary>
+                    <p>For select roles we can consider EU relocation; remote within the EU is common.</p>
+                </details>
+                <details>
+                    <summary>What’s the interview process?</summary>
+                    <p>Short intro → practical task → portfolio/code review → meet the team → offer.</p>
+                </details>
+                <details>
+                    <summary>Can I apply for multiple roles?</summary>
+                    <p>Yes. Or send an open application — we match people to problems.</p>
+                </details>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <script>
+    </section>
 
-    /* ---------- Sample roles data (edit this to your needs) ---------- */
-    const JOBS = [{
-      id: 'ds-ml', title: 'Data Scientist (Forecasting & Causal)',
-      team: 'Data Science', location: 'Helsinki (Hybrid)', type: 'Full-time', posted: '2025-11-01',
-      tags: ['Python', 'Time series', 'Fabric', 'Azure ML'],
-      intro: 'Own demand forecasting that powers daily prep suggestions for kitchens.',
-      about: ['Build & evaluate forecasting models (Prophet, XGBoost, SARIMAX).',
-        'Design experiments to measure waste reduction and cost savings.',
-        'Ship explainable insights to dashboards (Power BI Embedded).'
-      ],
-      must: ['3+ yrs in ML/DS',
-        'Strong SQL + Python',
-        'Forecasting experience'],
-      nice: ['Causal inference',
-        'MLOps on Azure',
-        'Power BI / DAX'],
-      apply: 'careers@meherix.com'
-    },
-    {
-      id: 'de-fabric', title: 'Data Engineer (Fabric/Lakehouse)',
-      team: 'Engineering', location: 'Remote (EU)', type: 'Full-time', posted: '2025-10-25',
-      tags: ['Fabric', 'Delta', 'Pipelines', 'SQL'],
-      intro: 'Build reliable data pipelines from POS & inventory to the lakehouse.',
-      about: ['Model curated tables for reporting & ML features.',
-        'Automate ingestion, validation, and lineage.',
-        'Harden security with RBAC and workspace-per-tenant.'
-      ],
-      must: ['2+ years data engineering', 'SQL + Python or PySpark', 'ETL/ELT best practices'],
-      nice: ['Azure DevOps', 'APIM', 'Cost optimization'],
-      apply: 'careers@meherix.com'
-    },
-    {
-      id: 'pm', title: 'Product Manager (Dashboards)',
-      team: 'Product', location: 'Vantaa (On-site)', type: 'Full-time', posted: '2025-10-18',
-      tags: ['Discovery', 'Power BI', 'Stakeholders'],
-      intro: 'Own the restaurant dashboard experience end-to-end.',
-      about: ['Talk to managers & chefs, turn needs into clear roadmap.',
-        'Define success metrics and run lean experiments.',
-        'Coordinate design, data, and engineering for quality delivery.'
-      ],
-      must: ['Strong discovery chops', 'Excellent writing & prioritization'],
-      nice: ['BI tooling', 'Foodtech experience'],
-      apply: 'careers@meherix.com'
-    },
-    {
-      id: 'ux', title: 'Product Designer (UX/UI)',
-      team: 'Design', location: 'Remote (EU)', type: 'Part-time', posted: '2025-10-10',
-      tags: ['Figma', 'Design systems', 'Accessibility'],
-      intro: 'Design beautiful, accessible interfaces for kitchen analytics.',
-      about: ['Craft flows and components that scale across web + mobile.',
-        'Run usability tests with real users.',
-        'Collaborate closely with PM and DS.'
-      ],
-      must: ['Figma proficiency', 'Strong portfolio'],
-      nice: ['Charts/BI experience', 'Motion micro-interactions'],
-      apply: 'careers@meherix.com'
-    },
-    {
-      id: 'intern', title: 'AI Intern (Thesis/Internship)',
-      team: 'Business', location: 'Helsinki (Hybrid)', type: 'Thesis', posted: '2025-09-28',
-      tags: ['Python', 'Experimentation', 'Documentation'],
-      intro: 'Help prototype menu-level waste prediction for buffet restaurants.',
-      about: ['Explore features from POS, calendar, weather.',
-        'Benchmark baselines and write clear notes.',
-        'Present results to the team.'
-      ],
-      must: ['Python basics', 'Curiosity & grit'],
-      nice: ['Forecasting', 'Power BI', 'Fabric'],
-      apply: 'careers@meherix.com'
-    }
-    ];
+    <section class="section">
+        <div class="wrap cta reveal">
+            <div>
+                <h2 class="section-title" style="margin:0 0 6px">Don’t see your role?</h2>
+                <p class="mute" style="margin:0">Tell us what you’d like to build. We read every
+                    application.</p>
+            </div>
+            <div class="row">
+                <a class="btn ghost"
+                    href="mailto:careers@meherix.com?subject=Open%20application">careers@meherix.com</a>
+                <a class="btn primary"
+                    href="mailto:careers@meherix.com?subject=Application%3A%20Role%20at%20MEHErix">Apply
+                    now</a>
+            </div>
+        </div>
+    </section>
 
-    /* ---------- Helpers ---------- */
-    const $ = s => document.querySelector(s);
+    <footer>
+        <div class="site-footer">
+            <div class="footer-grid">
+                <!-- Brand & Social -->
+                <div class="footer-brand">
+                    <h4>MEHErix – Insight Shines Through</h4>
+                    <p>AI &amp; Data Innovation Company<br>Orvokkitie 3, O1300 Vantaa, Finland<br>Business
+                        ID:
+                        000000
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/meherix.fi" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/meherix_fi" aria-label="X" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6 6 18M6 6l12 12"></path>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/meherix-fi" aria-label="LinkedIn" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/meherix.fi" aria-label="Instagram" target="_blank"
+                            rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="mailto:info@meherix.fi" aria-label="Email">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-    const el = (t, cls) => {
-      const n = document.createElement(t);
-      if (cls) n.className = cls;
-      return n;
-    };
-    const byId = id => document.getElementById(id);
+                <!-- Useful Links -->
+                <div class="footer-col">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                    </ul>
+                </div>
 
-    /* Render roles list */
-    function renderRoles(list) {
-      const box = byId('roles');
-      box.innerHTML = '';
+                <!-- SaaS -->
+                <div class="footer-col">
+                    <h4>SaaS (B2C)</h4>
+                    <ul>
+                        <li><a href="https://ling-school.meherix.com/">Ling-School - AI-powered personalized tutoring
+                                platform</a></li>
+                        <li><a href="https://grocescan.meherix.com/">grocescan-Predict Freshness. Prevent Waste.</a>
+                        </li>
+                    </ul>
+                </div>
 
-      if (!list.length) {
-        const empty = el('div', 'card');
-        empty.innerHTML = '<p class="small">No roles match your filters. Try clearing search or choosing a different team/location.</p>';
-        box.appendChild(empty);
-        return;
-      }
+                <!-- PaaS -->
+                <div class="footer-col">
+                    <h4>SaaS (B2B)</h4>
+                    <ul>
+                        <li><a href="https://mixx.meherix.com/">mixx - Kitchen Intelligent Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-sep" />
+            <div class="footer-bottom">
+                <div>© <span id="y"></span> MEHErix Oy. All rights reserved</div>
+                <div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span style="opacity:.6; padding:0 .6rem;">–</span>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-      list.forEach(job => {
-        const card = el('article', 'card reveal'); card.setAttribute('data-id', job.id);
-        // head
-        const head = el('div', 'card-head');
-        const left = el('div'); const right = el('div', 'row');
-        const h = el('h3', 'role-title'); h.textContent = job.title;
+    <script>
+        /* ---------- Sample roles data (edit this to your needs) ---------- */
+        const JOBS = [{
+            id: 'ds-ml', title: 'Data Scientist (Forecasting & Causal)',
+            team: 'Data Science', location: 'Helsinki (Hybrid)', type: 'Full-time', posted: '2025-11-01',
+            tags: ['Python', 'Time series', 'Fabric', 'Azure ML'],
+            intro: 'Own demand forecasting that powers daily prep suggestions for kitchens.',
+            about: ['Build & evaluate forecasting models (Prophet, XGBoost, SARIMAX).',
+                'Design experiments to measure waste reduction and cost savings.',
+                'Ship explainable insights to dashboards (Power BI Embedded).'
+            ],
+            must: ['3+ yrs in ML/DS',
+                'Strong SQL + Python',
+                'Forecasting experience'],
+            nice: ['Causal inference',
+                'MLOps on Azure',
+                'Power BI / DAX'],
+            apply: 'careers@meherix.com'
+        },
+        {
+            id: 'de-fabric', title: 'Data Engineer (Fabric/Lakehouse)',
+            team: 'Engineering', location: 'Remote (EU)', type: 'Full-time', posted: '2025-10-25',
+            tags: ['Fabric', 'Delta', 'Pipelines', 'SQL'],
+            intro: 'Build reliable data pipelines from POS & inventory to the lakehouse.',
+            about: ['Model curated tables for reporting & ML features.',
+                'Automate ingestion, validation, and lineage.',
+                'Harden security with RBAC and workspace-per-tenant.'
+            ],
+            must: ['2+ years data engineering', 'SQL + Python or PySpark', 'ETL/ELT best practices'],
+            nice: ['Azure DevOps', 'APIM', 'Cost optimization'],
+            apply: 'careers@meherix.com'
+        },
+        {
+            id: 'pm', title: 'Product Manager (Dashboards)',
+            team: 'Product', location: 'Vantaa (On-site)', type: 'Full-time', posted: '2025-10-18',
+            tags: ['Discovery', 'Power BI', 'Stakeholders'],
+            intro: 'Own the restaurant dashboard experience end-to-end.',
+            about: ['Talk to managers & chefs, turn needs into clear roadmap.',
+                'Define success metrics and run lean experiments.',
+                'Coordinate design, data, and engineering for quality delivery.'
+            ],
+            must: ['Strong discovery chops', 'Excellent writing & prioritization'],
+            nice: ['BI tooling', 'Foodtech experience'],
+            apply: 'careers@meherix.com'
+        },
+        {
+            id: 'ux', title: 'Product Designer (UX/UI)',
+            team: 'Design', location: 'Remote (EU)', type: 'Part-time', posted: '2025-10-10',
+            tags: ['Figma', 'Design systems', 'Accessibility'],
+            intro: 'Design beautiful, accessible interfaces for kitchen analytics.',
+            about: ['Craft flows and components that scale across web + mobile.',
+                'Run usability tests with real users.',
+                'Collaborate closely with PM and DS.'
+            ],
+            must: ['Figma proficiency', 'Strong portfolio'],
+            nice: ['Charts/BI experience', 'Motion micro-interactions'],
+            apply: 'careers@meherix.com'
+        },
+        {
+            id: 'intern', title: 'AI Intern (Thesis/Internship)',
+            team: 'Business', location: 'Helsinki (Hybrid)', type: 'Thesis', posted: '2025-09-28',
+            tags: ['Python', 'Experimentation', 'Documentation'],
+            intro: 'Help prototype menu-level waste prediction for buffet restaurants.',
+            about: ['Explore features from POS, calendar, weather.',
+                'Benchmark baselines and write clear notes.',
+                'Present results to the team.'
+            ],
+            must: ['Python basics', 'Curiosity & grit'],
+            nice: ['Forecasting', 'Power BI', 'Fabric'],
+            apply: 'careers@meherix.com'
+        }
+        ];
 
-        const meta = el('div', 'meta');
-        meta.textContent = `${job.team} • ${job.location} • ${job.type}`;
-        left.append(h, meta);
+        /* ---------- Helpers ---------- */
+        const $ = s => document.querySelector(s);
 
-        const moreBtn = el('button', 'btn ghost'); moreBtn.textContent = 'Details';
-        moreBtn.setAttribute('aria-expanded', 'false');
-        const applyBtn = el('a', 'btn primary'); applyBtn.textContent = 'Apply';
-
-        applyBtn.href = `mailto:${job.apply}?subject=Application%3A%20${encodeURIComponent(job.title)}`;
-        right.append(moreBtn, applyBtn);
-        head.append(left, right);
-
-        // chips
-        const chips = el('div', 'chips');
-
-        job.tags.forEach(t => {
-          const c = el('span', 'chip'); c.textContent = t; chips.appendChild(c);
-        });
-
-        // drawer
-        const drawer = el('div', 'drawer');
-        drawer.id = `drawer-${job.id}`;
-        const intro = el('p', 'small'); intro.textContent = job.intro;
-
-        const mkList = (title, items) => {
-          const w = el('div'); const th = el('p', 'small');
-          th.innerHTML = `<strong>${title}</strong>`;
-          const ul = el('ul'); ul.style.margin = '6px 0 10px';
-
-          items.forEach(i => {
-            const li = el('li'); li.textContent = i; ul.appendChild(li);
-          });
-          w.append(th, ul); return w;
+        const el = (t, cls) => {
+            const n = document.createElement(t);
+            if (cls) n.className = cls;
+            return n;
         };
+        const byId = id => document.getElementById(id);
 
-        drawer.append(intro, mkList('What you’ll do', job.about), mkList('Must have', job.must), mkList('Nice to have', job.nice));
+        /* Render roles list */
+        function renderRoles(list) {
+            const box = byId('roles');
+            box.innerHTML = '';
 
-        // toggle handler
-        moreBtn.addEventListener('click', () => {
-          const open = drawer.classList.toggle('open');
-          moreBtn.setAttribute('aria-expanded', String(open));
-          moreBtn.textContent = open ? 'Hide' : 'Details';
+            if (!list.length) {
+                const empty = el('div', 'card');
+                empty.innerHTML = '<p class="small">No roles match your filters. Try clearing search or choosing a different team/location.</p>';
+                box.appendChild(empty);
+                return;
+            }
+
+            list.forEach(job => {
+                const card = el('article', 'card reveal'); card.setAttribute('data-id', job.id);
+                // head
+                const head = el('div', 'card-head');
+                const left = el('div'); const right = el('div', 'row');
+                const h = el('h3', 'role-title'); h.textContent = job.title;
+
+                const meta = el('div', 'meta');
+                meta.textContent = `${job.team} • ${job.location} • ${job.type}`;
+                left.append(h, meta);
+
+                const moreBtn = el('button', 'btn ghost'); moreBtn.textContent = 'Details';
+                moreBtn.setAttribute('aria-expanded', 'false');
+                const applyBtn = el('a', 'btn primary'); applyBtn.textContent = 'Apply';
+
+                applyBtn.href = `mailto:${job.apply}?subject=Application%3A%20${encodeURIComponent(job.title)}`;
+                right.append(moreBtn, applyBtn);
+                head.append(left, right);
+
+                // chips
+                const chips = el('div', 'chips');
+
+                job.tags.forEach(t => {
+                    const c = el('span', 'chip'); c.textContent = t; chips.appendChild(c);
+                });
+
+                // drawer
+                const drawer = el('div', 'drawer');
+                drawer.id = `drawer-${job.id}`;
+                const intro = el('p', 'small'); intro.textContent = job.intro;
+
+                const mkList = (title, items) => {
+                    const w = el('div'); const th = el('p', 'small');
+                    th.innerHTML = `<strong>${title}</strong>`;
+                    const ul = el('ul'); ul.style.margin = '6px 0 10px';
+
+                    items.forEach(i => {
+                        const li = el('li'); li.textContent = i; ul.appendChild(li);
+                    });
+                    w.append(th, ul); return w;
+                };
+
+                drawer.append(intro, mkList('What you’ll do', job.about), mkList('Must have', job.must), mkList('Nice to have', job.nice));
+
+                // toggle handler
+                moreBtn.addEventListener('click', () => {
+                    const open = drawer.classList.toggle('open');
+                    moreBtn.setAttribute('aria-expanded', String(open));
+                    moreBtn.textContent = open ? 'Hide' : 'Details';
+                });
+
+                card.append(head, chips, drawer);
+                box.appendChild(card);
+            });
+            // reveal animation
+            document.querySelectorAll('.reveal').forEach(x => observer.observe(x));
+        }
+
+        /* Filter / sort logic */
+        function applyFilters() {
+            const q = byId('q').value.toLowerCase().trim();
+            const team = byId('team').value;
+            const loc = byId('loc').value;
+            const type = byId('type').value;
+            const sort = byId('sort').value;
+
+            let res = JOBS.filter(j => {
+                const text = (j.title + ' ' + j.team + ' ' + j.location + ' ' + j.type + ' ' + j.tags.join(' ') + ' ' + j.intro).toLowerCase();
+                const okQ = !q || text.includes(q);
+                const okTeam = !team || j.team === team;
+                const okLoc = !loc || j.location === loc;
+                const okType = !type || j.type === type;
+                return okQ && okTeam && okLoc && okType;
+            });
+
+            if (sort === 'az') res.sort((a, b) => a.title.localeCompare(b.title));
+            else res.sort((a, b) => new Date(b.posted) - new Date(a.posted));
+
+            renderRoles(res);
+        }
+
+        /* Reveal on scroll */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible'); observer.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: .16
         });
 
-        card.append(head, chips, drawer);
-        box.appendChild(card);
-      });
-      // reveal animation
-      document.querySelectorAll('.reveal').forEach(x => observer.observe(x));
-    }
+        /* Init */
+        ['q', 'team', 'loc', 'type', 'sort'].forEach(id => byId(id).addEventListener('input', applyFilters));
+        document.getElementById('y').textContent = new Date().getFullYear();
+        applyFilters();
+    </script>
 
-    /* Filter / sort logic */
-    function applyFilters() {
-      const q = byId('q').value.toLowerCase().trim();
-      const team = byId('team').value;
-      const loc = byId('loc').value;
-      const type = byId('type').value;
-      const sort = byId('sort').value;
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fpsLimit: 60,
+            background: {
+                color: "transparent"
+            },
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#1d3557"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#457b9d",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: "none",
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                },
+                modes: {
+                    repulse: {
+                        distance: 100
+                    },
+                    push: {
+                        quantity: 4
+                    }
+                }
+            },
+            detectRetina: true
+        });
+    </script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-      let res = JOBS.filter(j => {
-        const text = (j.title + ' ' + j.team + ' ' + j.location + ' ' + j.type + ' ' + j.tags.join(' ') + ' ' + j.intro).toLowerCase();
-        const okQ = !q || text.includes(q);
-        const okTeam = !team || j.team === team;
-        const okLoc = !loc || j.location === loc;
-        const okType = !type || j.type === type;
-        return okQ && okTeam && okLoc && okType;
-      });
-
-      if (sort === 'az') res.sort((a, b) => a.title.localeCompare(b.title));
-      else res.sort((a, b) => new Date(b.posted) - new Date(a.posted));
-
-      renderRoles(res);
-    }
-
-    /* Reveal on scroll */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible'); observer.unobserve(e.target);
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+            });
         }
-      });
-    }, {
-      threshold: .16
-    });
-
-    /* Init */
-    ['q', 'team', 'loc', 'type', 'sort'].forEach(id => byId(id).addEventListener('input', applyFilters));
-    document.getElementById('y').textContent = new Date().getFullYear();
-    applyFilters();
-
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
-  <script>
-    tsParticles.load("tsparticles", {
-      fpsLimit: 60,
-      background: {
-        color: "transparent"
-      },
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            value_area: 800
-          }
-        },
-        color: {
-          value: "#1d3557"
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.5,
-          random: false
-        },
-        size: {
-          value: 3,
-          random: true
-        },
-        links: {
-          enable: true,
-          distance: 150,
-          color: "#457b9d",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1.5,
-          direction: "none",
-          out_mode: "out"
-        }
-      },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: true,
-            mode: "repulse"
-          },
-          onclick: {
-            enable: true,
-            mode: "push"
-          }
-        },
-        modes: {
-          repulse: {
-            distance: 100
-          },
-          push: {
-            quantity: 4
-          }
-        }
-      },
-      detectRetina: true
-    });
-  </script>
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-      });
-    }
-  </script>
+    </script>
 </body>
 
-
 </html>
-
